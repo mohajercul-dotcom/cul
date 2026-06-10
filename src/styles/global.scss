@@ -492,7 +492,12 @@ $card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#5b629
 
 /* ─── Responsive ─── */
 @media (max-width: 640px) {
-  .content { flex-direction: column; }
+  .page { gap: 6px; padding: 6px; }
+
+  .content {
+    flex-direction: column;
+    overflow-y: auto;
+  }
 
   .col-brand {
     display: grid;
@@ -519,13 +524,11 @@ $card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#5b629
   .stat-item:nth-child(3) .stat-num { font-size: 0.85rem; }
 
   .col-cards { width: 100%; padding: 20px; }
-
-  /* smart sidebar */
-  .icon-sidebar { width: 52px; min-width: 52px; padding: 10px 0; height: 100%; overflow: hidden; }
-  .icon-group-top { flex: 1; justify-content: space-evenly; }
-  .sidebar-spacer { display: none; }
-  .icon-btn { width: 36px; height: 36px; }
-  .material-symbols-outlined { font-size: 17px; }
+  .icon-sidebar { width: 48px; min-width: 48px; padding: 6px 0; overflow: hidden; gap: 2px; }
+  .icon-group-top { gap: 2px; }
+  .icon-group-bottom { gap: 2px; }
+  .icon-btn { width: 32px; height: 32px; border-radius: 8px; }
+  .material-symbols-outlined { font-size: 15px; }
   .tooltip { display: none; }
   .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
 }
