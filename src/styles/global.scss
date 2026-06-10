@@ -524,10 +524,13 @@ $card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#5b629
   .stat-item:nth-child(3) .stat-num { font-size: 0.85rem; }
 
   .col-cards { width: 100%; padding: 20px; }
+
+  /* smart sidebar */
   .icon-sidebar { width: 48px; min-width: 48px; padding: 6px 0; overflow: hidden; gap: 2px; }
-  .icon-group-top { gap: 2px; }
-  .icon-group-bottom { gap: 2px; }
-  .icon-btn { width: 32px; height: 32px; border-radius: 8px; }
+  .icon-group-top { flex: 1; gap: 2px; min-height: 0; }
+  .icon-group-bottom { gap: 2px; flex-shrink: 0; }
+  .sidebar-spacer { display: none; }
+  .icon-btn { width: 36px; flex: 1; min-height: 22px; max-height: 38px; border-radius: 8px; }
   .material-symbols-outlined { font-size: 15px; }
   .tooltip { display: none; }
   .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
