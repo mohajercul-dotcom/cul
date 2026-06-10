@@ -1,5 +1,10 @@
 ---
-const items = [
+interface SidebarItem {
+  icon: string;
+  label: string;
+}
+
+const items: SidebarItem[] = [
   { icon: "home", label: "خانه" },
   { icon: "menu_book", label: "قرآن" },
   { icon: "auto_stories", label: "کتابخانه" },

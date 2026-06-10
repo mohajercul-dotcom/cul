@@ -1,9 +1,16 @@
 ---
-import "../styles/global.css";
+import "../styles/global.scss";
 import Sidebar from "../components/Sidebar.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 
-const projects = [
+interface Project {
+  name: string;
+  desc: string;
+  img: string;
+  status: "completed" | "in-progress" | "queued";
+}
+
+const projects: Project[] = [
   { name: "مکتبة العلوم", desc: "کتابخانه دیجیتال هزاران جلد کتاب و مقاله در فقه، اصول، حدیث و تفسیر", img: "/cards/card1.jpg", status: "completed" },
   { name: "نور الهدی", desc: "دانشنامه تعاملی قرآن با جستجوی پیشرفته، تفسیر تطبیقی و ترجمه چندزبانه", img: "/cards/card2.jpg", status: "in-progress" },
   { name: "وقت الصلاة", desc: "سامانه اوقات شرعی با قبله‌نما، تقویم اسلامی و یادآوری اذان هوشمند", img: "/cards/card3.jpg", status: "queued" },
@@ -12,13 +19,13 @@ const projects = [
   { name: "دار السلام", desc: "شبکه اجتماعی خانواده محور با رویکرد سبک زندگی اسلامی و محتوای سالم", img: "/cards/card6.jpg", status: "queued" },
 ];
 
-const completed = projects.filter(p => p.status === "completed").length;
-const inProgress = projects.filter(p => p.status === "in-progress").length;
-const queued = projects.filter(p => p.status === "queued").length;
-const pct = Math.round((inProgress / projects.length) * 100);
+const completed: number = projects.filter(p => p.status === "completed").length;
+const inProgress: number = projects.filter(p => p.status === "in-progress").length;
+const queued: number = projects.filter(p => p.status === "queued").length;
+const pct: number = Math.round((inProgress / projects.length) * 100);
 
-function persianNum(n) {
-  return String(n).replace(/\d/g, d => "۰۱۲۳۴۵۶۷۸۹"[parseInt(d)]);
+function persianNum(n: number): string {
+  return String(n).replace(/\d/g, (d: string) => "۰۱۲۳۴۵۶۷۸۹"[parseInt(d)]);
 }
 ---
 
