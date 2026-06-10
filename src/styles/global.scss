@@ -552,7 +552,3 @@ $card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#5b629
   .tooltip { display: none; }
   .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
 }
-
-@media (max-width: 400px) {
-  .grid { grid-template-columns: 1fr; }
-}
