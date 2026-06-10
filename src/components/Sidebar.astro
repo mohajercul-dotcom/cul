@@ -1,0 +1,32 @@
+---
+const items = [
+  { icon: "home", label: "خانه" },
+  { icon: "menu_book", label: "قرآن" },
+  { icon: "auto_stories", label: "کتابخانه" },
+  { icon: "schedule", label: "اوقات" },
+  { icon: "favorite", label: "حمایت" },
+  { icon: "mail", label: "تماس" },
+];
+---
+<aside class="icon-sidebar">
+  <div class="icon-group-top">
+    {items.map((item) => (
+      <div class="icon-btn-container">
+        <button class="icon-btn">
+          <span class="material-symbols-outlined">{item.icon}</span>
+        </button>
+        <div class="tooltip">{item.label}</div>
+      </div>
+    ))}
+  </div>
+  <div class="sidebar-spacer"></div>
+  <div class="icon-group-bottom">
+    <div class="icon-btn-container" id="theme-toggle-container">
+      <button class="icon-btn" id="themeToggleSide">
+        <span class="material-symbols-outlined theme-light-icon">light_mode</span>
+        <span class="material-symbols-outlined theme-dark-icon">dark_mode</span>
+      </button>
+      <div class="tooltip" id="theme-tooltip">شب</div>
+    </div>
+  </div>
+</aside>

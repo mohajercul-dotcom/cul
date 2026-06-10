@@ -1,0 +1,20 @@
+---
+export interface Props {
+  name: string;
+  desc: string;
+  index: number;
+  img: string;
+}
+const { name, desc, index, img } = Astro.props;
+const num = String(index + 1).padStart(2, "0");
+---
+
+<article class="card" style={`--i: ${index}; --img: url(${img})`}>
+  <div class="card-bg"></div>
+  <div class="card-overlay"></div>
+  <div class="card-body">
+    <div class="num">{num}</div>
+    <h3>{name}</h3>
+    <p>{desc}</p>
+  </div>
+</article>
