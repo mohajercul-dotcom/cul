@@ -8,7 +8,7 @@ $red: #c44536;
 $red-l: #e87a6a;
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { height: 100%; overflow: hidden; }
+html, body { height: 100%; }
 
 body {
   --modal-ol: rgba(56, 25, 50, 0.85);
@@ -18,7 +18,6 @@ body {
   background: $light;
   color: $dark;
   direction: rtl;
-  overflow-x: hidden;
   &.dark {
     --modal-ol: rgba(255, 243, 230, 0.85);
     --modal-bg: $light;
