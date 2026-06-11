@@ -75,8 +75,13 @@ function persianNum(n: number): string {
             </div>
             <div class="stat-item">
               <span class="stat-label">پروژه فعال</span>
-              <span class="stat-num">{persianNum(pct)}%</span>
-              <div class="stat-bar"><div class="stat-fill" style="width:{pct}%"></div></div>
+              <span class="stat-num">
+                {pct === 100 && <span class="stat-check">✓</span>}
+                {persianNum(pct)}%
+              </span>
+              <div class="stat-bar">
+                <div class="stat-fill{pct === 100 ? " complete" : ""}" style="width:{pct}%"></div>
+              </div>
             </div>
             <div class="stat-item">
               <span class="stat-label">پروژه در نوبت</span>
