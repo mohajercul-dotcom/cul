@@ -3,15 +3,28 @@ export interface Props {
   name: string;
   desc: string;
   index: number;
-  img: string;
+  img?: string;
+  logo?: string;
+  pastel?: string;
 }
-const { name, desc, index, img } = Astro.props;
+const { name, desc, index, img, logo, pastel } = Astro.props;
 const num = String(index + 1).padStart(2, "0");
+const isPastel = pastel !== undefined;
+const style = isPastel ? `--i: ${index}; --pastel: ${pastel}` : `--i: ${index}; --img: url(${img})`;
 ---
 
-<article class="card" style={`--i: ${index}; --img: url(${img})`}>
-  <div class="card-bg"></div>
-  <div class="card-overlay"></div>
+<article class="card" class:list={{ "card-pastel": isPastel }} {style}>
+  {isPastel ? (
+    <>
+      <div class="card-bg-pastel"></div>
+      {logo && <div class="card-logo"><img src={logo} alt="" /></div>}
+    </>
+  ) : (
+    <>
+      <div class="card-bg"></div>
+      <div class="card-overlay"></div>
+    </>
+  )}
   <div class="card-body">
     <div class="num">{num}</div>
     <h3>{name}</h3>

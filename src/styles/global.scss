@@ -387,6 +387,48 @@ $card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#5b629
   }
 }
 
+.card-logo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.2;
+}
+.card-logo img {
+  width: 60%;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+.card-pastel {
+  .card-bg-pastel {
+    position: absolute;
+    inset: 0;
+    background: var(--pastel);
+    z-index: 0;
+  }
+  .card-logo {
+    opacity: 1;
+    align-items: flex-start;
+    padding-top: 20%;
+    img {
+      filter: none;
+      width: 55%;
+    }
+  }
+  .card-overlay {
+    display: none;
+  }
+  .card-body {
+    .num { color: rgba(0, 0, 0, 0.35); }
+    h3 { color: #2d2d2d; }
+    p { color: rgba(0, 0, 0, 0.6); }
+  }
+}
+
 .card-overlay {
   position: absolute;
   top: 33.333%;
