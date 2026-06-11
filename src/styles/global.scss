@@ -99,6 +99,56 @@ body {
   }
 }
 
+/* Sidebar calendar */
+.sidebar-calendar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+.cal-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.3s;
+  line-height: 1;
+}
+.cal-entry.fade {
+  opacity: 0;
+}
+.cal-dayname {
+  writing-mode: vertical-rl;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 7px;
+  body.dark & { color: rgba(56, 25, 50, 0.5); }
+}
+.cal-day {
+  font-size: 22px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 5px;
+  body.dark & { color: rgba(56, 25, 50, 0.95); }
+}
+.cal-month {
+  font-size: 17px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 5px;
+  body.dark & { color: rgba(56, 25, 50, 0.75); }
+}
+.cal-year {
+  writing-mode: vertical-rl;
+  font-size: 17px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  body.dark & { color: rgba(56, 25, 50, 0.5); }
+}
+
 /* Tooltip */
 .tooltip {
   position: absolute;
@@ -398,11 +448,6 @@ $card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#5b629
   pointer-events: none;
   opacity: 0.2;
 }
-.card-logo img {
-  width: 60%;
-  height: auto;
-  filter: brightness(0) invert(1);
-}
 
 .card-pastel {
   justify-content: center;
@@ -439,6 +484,7 @@ $card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#5b629
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
     img {
       filter: none;
       width: 75%;
@@ -622,6 +668,10 @@ $card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#5b629
   .icon-btn { width: 38px; flex: 1; min-height: 18px; max-height: 40px; border-radius: 6px; }
   .material-symbols-outlined { font-size: 18px; }
   .tooltip { display: none; }
+  .cal-dayname { font-size: 8px; margin-bottom: 3px; }
+  .cal-day { font-size: 11px; margin-bottom: 2px; }
+  .cal-month { font-size: 8px; margin-bottom: 2px; }
+  .cal-year { font-size: 8px; }
   .grid { grid-template-columns: 1fr; gap: 10px; }
   .card-pastel { height: auto; flex-direction: row; align-items: stretch; justify-content: flex-start; }
   .card-pastel .card-section-top { flex: none; width: 33%; display: flex; align-items: center; justify-content: center; padding: 12px; }

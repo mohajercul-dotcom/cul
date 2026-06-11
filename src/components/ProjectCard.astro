@@ -33,6 +33,7 @@ const style = isPastel ? `--i: ${index}; --pastel: ${pastel}` : `--i: ${index}; 
   ) : (
     <>
       <div class="card-bg"></div>
+      {logo && <div class="card-logo"><img src={logo} alt="" /></div>}
       <div class="card-overlay"></div>
       <div class="card-body">
         <div class="num">{num}</div>

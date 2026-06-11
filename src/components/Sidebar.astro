@@ -20,7 +20,14 @@ const items: SidebarItem[] = [
       </div>
     ))}
   </div>
-  <div class="sidebar-spacer"></div>
+  <div class="sidebar-calendar" id="sidebarCalendar">
+    <div class="cal-entry" id="calEntry">
+      <span class="cal-dayname" id="calDayname"></span>
+      <span class="cal-day" id="calDay"></span>
+      <span class="cal-month" id="calMonth"></span>
+      <span class="cal-year" id="calYear"></span>
+    </div>
+  </div>
   <div class="icon-group-bottom">
     <div class="icon-btn-container" id="theme-toggle-container">
       <button class="icon-btn" id="themeToggleSide">
@@ -31,3 +38,87 @@ const items: SidebarItem[] = [
     </div>
   </div>
 </aside>
+
+<script>
+  import { toJalaali } from "jalaali-js";
+
+  var calData = [
+    { label: "شمسی", fmt: "jalaali" },
+    { label: "قمری", fmt: "hijri" },
+    { label: "میلادی", fmt: "greg" },
+  ];
+  var active = 0;
+
+  var weekDays = ["یک\u200cشنبه", "دوشنبه", "سه\u200cشنبه", "چهارشنبه", "پنج\u200cشنبه", "جمعه", "شنبه"];
+
+  function pn(n) { return String(n).replace(/\d/g, function (d) { return "۰۱۲۳۴۵۶۷۸۹"[parseInt(d)]; }); }
+  function an(n) { return String(n).replace(/\d/g, function (d) { return "٠١٢٣٤٥٦٧٨٩"[parseInt(d)]; }); }
+  function pad(n) { return String(n).padStart(2, "0"); }
+
+  function toHijri(gy, gm, gd) {
+    var jd = Math.floor((1461 * (gy + 4800 + Math.floor((gm - 14) / 12))) / 4) +
+      Math.floor((367 * (gm - 2 - 12 * Math.floor((gm - 14) / 12))) / 12) -
+      Math.floor((3 * Math.floor((gy + 4900 + Math.floor((gm - 14) / 12)) / 100)) / 4) + gd - 32075;
+    var hili = jd - 1948440;
+    var hy = Math.floor((30 * hili + 24046) / 10631);
+    var hm = Math.ceil((hili - 29 - 354 * (hy - 1) - Math.floor((3 + 11 * hy) / 30)) / 29.5);
+    var hd = hili - 29 - 354 * (hy - 1) - Math.floor((3 + 11 * hy) / 30) - Math.floor(29.5 * (hm - 1));
+    if (hm > 12) { hy++; hm -= 12; }
+    return { hy: Math.max(1, hy), hm: Math.max(1, Math.min(12, hm)), hd: Math.max(1, hd) };
+  }
+
+  function update() {
+    var now = new Date();
+    var gy = now.getFullYear(), gm = now.getMonth() + 1, gd = now.getDate();
+    var j = toJalaali(gy, gm, gd);
+    var h = toHijri(gy, gm, gd);
+
+    var dayEl = document.getElementById("calDay");
+    var monthEl = document.getElementById("calMonth");
+    var yearEl = document.getElementById("calYear");
+    var nameEl = document.getElementById("calDayname");
+
+    var cal = calData[active];
+    if (cal.fmt === "jalaali") {
+      dayEl.textContent = pn(j.jd);
+      monthEl.textContent = pn(j.jm);
+      yearEl.textContent = pn(j.jy);
+    } else if (cal.fmt === "hijri") {
+      dayEl.textContent = an(h.hd);
+      monthEl.textContent = an(h.hm);
+      yearEl.textContent = an(h.hy);
+    } else {
+      dayEl.textContent = pad(gd);
+      monthEl.textContent = pad(gm);
+      yearEl.textContent = String(gy);
+    }
+
+    nameEl.textContent = weekDays[now.getDay()];
+  }
+
+  function cycle() {
+    active = (active + 1) % 3;
+    update();
+  }
+
+  var entry = document.getElementById("calEntry");
+  entry.classList.add("fade");
+  update();
+  setTimeout(function () { entry.classList.remove("fade"); }, 50);
+
+  setInterval(function () {
+    entry.classList.add("fade");
+    setTimeout(function () {
+      cycle();
+      entry.classList.remove("fade");
+    }, 300);
+  }, 4000);
+
+  document.getElementById("sidebarCalendar").addEventListener("click", function () {
+    entry.classList.add("fade");
+    setTimeout(function () {
+      cycle();
+      entry.classList.remove("fade");
+    }, 300);
+  });
+</script>
