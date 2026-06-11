@@ -41,6 +41,7 @@ const items: SidebarItem[] = [
 
 <script>
   import { toJalaali } from "jalaali-js";
+  import { toHijri } from "hijri-core";
 
   var calData = [
     { label: "شمسی", fmt: "jalaali" },
@@ -55,23 +56,11 @@ const items: SidebarItem[] = [
   function an(n) { return String(n).replace(/\d/g, function (d) { return "٠١٢٣٤٥٦٧٨٩"[parseInt(d)]; }); }
   function pad(n) { return String(n).padStart(2, "0"); }
 
-  function toHijri(gy, gm, gd) {
-    var jd = Math.floor((1461 * (gy + 4800 + Math.floor((gm - 14) / 12))) / 4) +
-      Math.floor((367 * (gm - 2 - 12 * Math.floor((gm - 14) / 12))) / 12) -
-      Math.floor((3 * Math.floor((gy + 4900 + Math.floor((gm - 14) / 12)) / 100)) / 4) + gd - 32075;
-    var hili = jd - 1948440;
-    var hy = Math.floor((30 * hili + 24046) / 10631);
-    var hm = Math.ceil((hili - 29 - 354 * (hy - 1) - Math.floor((3 + 11 * hy) / 30)) / 29.5);
-    var hd = hili - 29 - 354 * (hy - 1) - Math.floor((3 + 11 * hy) / 30) - Math.floor(29.5 * (hm - 1));
-    if (hm > 12) { hy++; hm -= 12; }
-    return { hy: Math.max(1, hy), hm: Math.max(1, Math.min(12, hm)), hd: Math.max(1, hd) };
-  }
-
   function update() {
     var now = new Date();
     var gy = now.getFullYear(), gm = now.getMonth() + 1, gd = now.getDate();
     var j = toJalaali(gy, gm, gd);
-    var h = toHijri(gy, gm, gd);
+    var h = toHijri(now);
 
     var dayEl = document.getElementById("calDay");
     var monthEl = document.getElementById("calMonth");
