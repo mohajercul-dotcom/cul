@@ -21,10 +21,8 @@ const projects: Project[] = [
   { name: "دار السلام", desc: "شبکه اجتماعی خانواده محور با رویکرد سبک زندگی اسلامی و محتوای سالم", img: "/cards/card6.jpg", status: "queued" },
 ];
 
-const completed: number = projects.filter(p => p.status === "completed").length;
-const inProgress: number = projects.filter(p => p.status === "in-progress").length;
-const queued: number = projects.filter(p => p.status === "queued").length;
-const pct: number = Math.round((inProgress / projects.length) * 100);
+import stats from "../data/stats.json";
+const { completed, inProgress, queued, activePercent: pct } = stats;
 
 function persianNum(n: number): string {
   return String(n).replace(/\d/g, (d: string) => "۰۱۲۳۴۵۶۷۸۹"[parseInt(d)]);
