@@ -80,7 +80,7 @@ function persianNum(n: number): string {
                 {persianNum(pct)}%
               </span>
               <div class="stat-bar">
-                <div class="stat-fill{pct === 100 ? " complete" : ""}" style="width:{pct}%"></div>
+                <div class={`stat-fill${pct === 100 ? " complete" : ""}`} style={`width:${pct}%`}></div>
               </div>
             </div>
             <div class="stat-item">
