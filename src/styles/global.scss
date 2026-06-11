@@ -404,28 +404,56 @@ $card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#5b629
 }
 
 .card-pastel {
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;
+  height: 100%;
   .card-bg-pastel {
     position: absolute;
     inset: 0;
     background: var(--pastel);
     z-index: 0;
   }
+  .card-section {
+    position: relative;
+    z-index: 2;
+  }
+  .card-section-top {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-section-mid {
+    display: none;
+  }
+  .card-section-btm {
+    flex-shrink: 0;
+    padding-bottom: 20px;
+  }
   .card-logo {
+    position: relative;
+    inset: auto;
     opacity: 1;
-    align-items: flex-start;
-    padding-top: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     img {
       filter: none;
-      width: 55%;
+      width: 75%;
+      max-height: 240px;
+      object-fit: contain;
     }
   }
   .card-overlay {
-    display: none;
+    z-index: 1;
   }
   .card-body {
-    .num { color: rgba(0, 0, 0, 0.35); }
-    h3 { color: #2d2d2d; }
-    p { color: rgba(0, 0, 0, 0.6); }
+    padding: 8px 16px 20px;
+    text-align: center;
+    .num { color: rgba(255, 255, 255, 0.5); }
+    h3 { color: #fff; }
+    p { color: rgba(255, 255, 255, 0.7); }
   }
 }
 
@@ -594,4 +622,17 @@ $card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#5b629
   .material-symbols-outlined { font-size: 18px; }
   .tooltip { display: none; }
   .grid { grid-template-columns: 1fr; gap: 10px; }
+  .card-pastel { height: auto; flex-direction: row; align-items: stretch; justify-content: flex-start; }
+  .card-pastel .card-section-top { flex: none; width: 33%; display: flex; align-items: center; justify-content: center; padding: 12px; }
+  .card-pastel .card-section-mid { display: none; }
+  .card-pastel .card-logo { padding: 0; width: 100%; }
+  .card-pastel .card-logo img { width: 100%; height: auto; max-height: none; max-width: 100px; }
+  .card-pastel .card-section-btm { flex: 1; display: flex; align-items: center; }
+  .card-pastel .card-body {
+    padding: 12px 8px 12px 12px;
+    text-align: start;
+    .num { color: rgba(255, 255, 255, 0.5); }
+    h3 { color: #fff; font-size: 0.95rem; }
+    p { color: rgba(255, 255, 255, 0.7); font-size: 0.7rem; }
+  }
 }

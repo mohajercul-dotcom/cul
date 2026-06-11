@@ -17,17 +17,28 @@ const style = isPastel ? `--i: ${index}; --pastel: ${pastel}` : `--i: ${index}; 
   {isPastel ? (
     <>
       <div class="card-bg-pastel"></div>
-      {logo && <div class="card-logo"><img src={logo} alt="" /></div>}
+      <div class="card-overlay"></div>
+      <div class="card-section card-section-top">
+        {logo && <div class="card-logo"><img src={logo} alt="" /></div>}
+      </div>
+      <div class="card-section card-section-mid"></div>
+      <div class="card-section card-section-btm">
+        <div class="card-body">
+          <div class="num">{num}</div>
+          <h3>{name}</h3>
+          <p>{desc}</p>
+        </div>
+      </div>
     </>
   ) : (
     <>
       <div class="card-bg"></div>
       <div class="card-overlay"></div>
+      <div class="card-body">
+        <div class="num">{num}</div>
+        <h3>{name}</h3>
+        <p>{desc}</p>
+      </div>
     </>
   )}
-  <div class="card-body">
-    <div class="num">{num}</div>
-    <h3>{name}</h3>
-    <p>{desc}</p>
-  </div>
 </article>
