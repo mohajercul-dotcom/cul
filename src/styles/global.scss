@@ -266,7 +266,7 @@ body {
   gap: clamp(12px, 1.2vw, 20px);
   overflow-y: auto;
   scrollbar-width: thin;
-  margin-right: calc(42px + clamp(8px, 0.8vw, 12px));
+  margin-right: calc(40px + clamp(6px, 0.6vw, 8px));
 
   &::-webkit-scrollbar { width: 4px; }
   &::-webkit-scrollbar-track { background: transparent; }
