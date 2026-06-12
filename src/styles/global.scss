@@ -19,16 +19,16 @@ html, body { height: 100%; }
 
 body {
   --modal-ol: rgba(56, 25, 50, 0.85);
-  --modal-bg: $dark;
-  --modal-txt: $light;
+  --modal-bg: #{$dark};
+  --modal-txt: #{$light};
   font-family: "Vazirmatn", sans-serif;
   background: $light;
   color: $dark;
   direction: rtl;
   &.dark {
     --modal-ol: rgba(255, 243, 230, 0.85);
-    --modal-bg: $dt-light;
-    --modal-txt: $dark;
+    --modal-bg: #{$dt-light};
+    --modal-txt: #{$dark};
     background: $dark;
     color: $dt-light;
   }
