@@ -39,13 +39,18 @@ body {
 }
 
 /* ─── Sidebar ─── */
+.col-brand {
+  position: relative;
+}
 .menu-circles {
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding-top: clamp(24px, 2.5vw, 40px);
+  position: absolute;
+  top: 0;
+  right: 100%;
   margin-right: -22px;
-  position: relative;
   z-index: 5;
 }
 
@@ -641,8 +646,8 @@ body.dark .modal .modal-close {
   .col-brand {
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr;
-    gap: 12px;
+    grid-template-rows: auto auto auto;
+    gap: 8px;
     width: 100%;
     padding: 16px;
     overflow: visible;
@@ -650,8 +655,9 @@ body.dark .modal .modal-close {
 
     .logo-wrap { grid-column: 1; grid-row: 1; }
     .brand-label { display: none; }
-    .about { grid-column: 2; grid-row: 1 / 3; margin: 0; font-size: 0.78rem; line-height: 1.7; }
-    .stats { grid-column: 1; grid-row: 2; margin-top: 0; gap: 4px; flex-shrink: 0; }
+    .about { grid-column: 2; grid-row: 1 / 4; margin: 0; font-size: 0.78rem; line-height: 1.7; }
+    .menu-circles { grid-column: 1; grid-row: 2; }
+    .stats { grid-column: 1; grid-row: 3; margin-top: 0; gap: 4px; flex-shrink: 0; }
   }
 
   .col-brand .logo-wrap svg { height: 48px; }
@@ -665,10 +671,11 @@ body.dark .modal .modal-close {
   .col-cards { width: 100%; padding: 20px; }
 
   .menu-circles {
+    position: static;
     flex-direction: row;
-    padding-top: 16px;
-    margin-right: 0;
-    gap: 6px;
+    justify-content: space-between;
+    padding-top: 0;
+    gap: 0;
   }
   .icon-circle { width: 36px; height: 36px; }
   .material-symbols-outlined { font-size: 20px; }
