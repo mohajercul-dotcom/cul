@@ -266,6 +266,7 @@ body {
   gap: clamp(12px, 1.2vw, 20px);
   overflow-y: auto;
   scrollbar-width: thin;
+  margin-right: calc(42px + clamp(8px, 0.8vw, 12px));
 
   &::-webkit-scrollbar { width: 4px; }
   &::-webkit-scrollbar-track { background: transparent; }
@@ -678,7 +679,7 @@ body.dark .modal .modal-close {
   .stat-bar { left: 8px; right: 8px; height: 1.5px; }
   .stat-item:nth-child(3) .stat-num { font-size: 0.85rem; }
 
-  .col-cards { width: 100%; padding: 20px; }
+  .col-cards { width: 100%; padding: 20px; margin-right: 0; }
 
   .menu-circles {
     position: static;
