@@ -39,13 +39,18 @@ body {
 }
 
 /* ─── Sidebar ─── */
+.col-brand {
+  position: relative;
+}
 .menu-circles {
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding-top: clamp(24px, 2.5vw, 40px);
+  position: absolute;
+  top: 0;
+  right: 100%;
   margin-right: -22px;
-  position: relative;
   z-index: 5;
 }
 
@@ -634,28 +639,48 @@ body.dark .modal .modal-close {
   .page { gap: 6px; padding: 6px; }
 
   .content {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 8px;
+    flex-direction: column;
     overflow-y: auto;
   }
 
   .col-brand {
-    display: contents;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 8px;
+    width: 100%;
+    padding: 16px;
+    overflow: visible;
+    align-items: start;
+    position: relative;
+
+    .logo-wrap { grid-column: 1; grid-row: 1; }
+    .brand-label { display: none; }
+    .about {
+      grid-column: 2; grid-row: 1 / 4;
+      margin: 0;
+      font-size: 0.78rem; line-height: 1.7;
+    }
+    .menu-circles { grid-column: 1; grid-row: 2; }
+    .stats {
+      grid-column: 1; grid-row: 3;
+      margin-top: 0;
+      gap: 4px;
+      flex-shrink: 0;
+    }
   }
 
-  .col-brand .logo-wrap { grid-column: 1; grid-row: 1; padding-right: 16px; }
-  .col-brand .brand-label { display: none; }
-  .col-brand .about {
-    grid-column: 2; grid-row: 1 / 4;
-    font-size: 0.78rem; line-height: 1.7;
-    padding: 0 0 0 16px;
-  }
-  .col-brand .about p:first-child {
-    margin-top: 0;
-  }
+  .col-brand .logo-wrap svg { height: 48px; }
+
+  .stat-item { flex-direction: column; gap: 1px; padding: 6px 8px; }
+  .stat-label { font-size: 0.45rem; }
+  .stat-num { font-size: 0.85rem; }
+  .stat-bar { left: 8px; right: 8px; height: 1.5px; }
+  .stat-item:nth-child(3) .stat-num { font-size: 0.85rem; }
+
+  .col-cards { width: 100%; padding: 20px; }
+
   .menu-circles {
-    grid-column: 1; grid-row: 2;
     position: static;
     flex-direction: row;
     justify-content: flex-start;
@@ -664,14 +689,6 @@ body.dark .modal .modal-close {
     margin-right: 0;
     padding: 0;
   }
-  .col-brand .stats { grid-column: 1; grid-row: 3; margin-top: 0; gap: 4px; flex-shrink: 0; padding: 0 16px 0 0; }
-  .col-brand .stats .stat-item { padding: 6px 8px; }
-  .col-brand .stats .stat-bar { left: 8px; right: 8px; height: 1.5px; }
-  .col-brand .stats .stat-item:nth-child(3) .stat-num { font-size: 0.85rem; }
-
-  .col-brand .logo-wrap svg { height: 48px; }
-
-  .col-cards { grid-column: 1 / -1; padding: 20px; }
   .icon-circle { width: 36px; height: 36px; }
   .material-symbols-outlined { font-size: 20px; }
   .grid { grid-template-columns: 1fr; gap: 10px; }
