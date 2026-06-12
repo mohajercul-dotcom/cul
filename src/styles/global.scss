@@ -648,7 +648,7 @@ body.dark .modal .modal-close {
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: auto auto auto;
-    gap: 8px;
+    gap: 8px 16px;
     width: 100%;
     padding: 16px;
     overflow: visible;
