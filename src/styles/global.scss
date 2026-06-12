@@ -117,7 +117,8 @@ body {
     line-height: 1;
     margin-top: 8px;
     letter-spacing: clamp(2px, 0.3vw, 5px);
-    padding-left: clamp(2px, 0.3vw, 5px);
+    text-align: center;
+    padding: 0 clamp(2px, 0.3vw, 5px);
 
     body.dark & { color: $dt-light; }
   }
