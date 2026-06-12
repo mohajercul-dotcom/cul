@@ -13,29 +13,12 @@ const items: SidebarItem[] = [
   <div class="icon-group-top">
     {items.map((item, i) => (
       <div class="icon-btn-container">
-        <button class="icon-btn" id={i === 0 ? "homeBtn" : "contactBtn"}>
+        <button class="icon-circle" id={i === 0 ? "homeBtn" : "contactBtn"}>
           <span class="material-symbols-outlined">{item.icon}</span>
         </button>
         <div class="tooltip">{item.label}</div>
       </div>
     ))}
-  </div>
-  <div class="sidebar-calendar" id="sidebarCalendar">
-    <div class="cal-entry" id="calEntry">
-      <span class="cal-dayname" id="calDayname"></span>
-      <span class="cal-day" id="calDay"></span>
-      <span class="cal-month" id="calMonth"></span>
-      <span class="cal-year" id="calYear"></span>
-    </div>
-  </div>
-  <div class="icon-group-bottom">
-    <div class="icon-btn-container" id="theme-toggle-container">
-      <button class="icon-btn" id="themeToggleSide">
-        <span class="material-symbols-outlined theme-light-icon">light_mode</span>
-        <span class="material-symbols-outlined theme-dark-icon">dark_mode</span>
-      </button>
-      <div class="tooltip" id="theme-tooltip">شب</div>
-    </div>
   </div>
 </aside>
 
@@ -51,88 +34,17 @@ const items: SidebarItem[] = [
       </a>
       <a href="https://t.me/mohebkhatib" target="_blank" rel="noopener" class="modal-link">
         <span class="material-symbols-outlined">send</span>
-        <span>ارتباط با ادمین (۱)</span>
+        <span>پشتیبانی در تلگرام</span>
       </a>
       <a href="https://t.me/Ghn2459" target="_blank" rel="noopener" class="modal-link">
         <span class="material-symbols-outlined">send</span>
-        <span>ارتباط با ادمین (۲)</span>
+        <span>ارتباط با مدیریت</span>
       </a>
     </div>
   </div>
 </div>
 
 <script>
-  import { toJalaali } from "jalaali-js";
-  import { toHijri } from "hijri-core";
-
-  var calData = [
-    { label: "شمسی", fmt: "jalaali" },
-    { label: "قمری", fmt: "hijri" },
-    { label: "میلادی", fmt: "greg" },
-  ];
-  var active = 0;
-
-  var weekDays = ["یک\u200cشنبه", "دوشنبه", "سه\u200cشنبه", "چهارشنبه", "پنج\u200cشنبه", "جمعه", "شنبه"];
-
-  function pn(n) { return String(n).replace(/\d/g, function (d) { return "۰۱۲۳۴۵۶۷۸۹"[parseInt(d)]; }); }
-  function an(n) { return String(n).replace(/\d/g, function (d) { return "٠١٢٣٤٥٦٧٨٩"[parseInt(d)]; }); }
-  function pad(n) { return String(n).padStart(2, "0"); }
-
-  function update() {
-    var now = new Date();
-    var gy = now.getFullYear(), gm = now.getMonth() + 1, gd = now.getDate();
-    var j = toJalaali(gy, gm, gd);
-    var h = toHijri(now);
-
-    var dayEl = document.getElementById("calDay");
-    var monthEl = document.getElementById("calMonth");
-    var yearEl = document.getElementById("calYear");
-    var nameEl = document.getElementById("calDayname");
-
-    var cal = calData[active];
-    if (cal.fmt === "jalaali") {
-      dayEl.textContent = pn(j.jd);
-      monthEl.textContent = pn(j.jm);
-      yearEl.textContent = pn(j.jy);
-    } else if (cal.fmt === "hijri") {
-      dayEl.textContent = an(h.hd);
-      monthEl.textContent = an(h.hm);
-      yearEl.textContent = an(h.hy);
-    } else {
-      dayEl.textContent = pad(gd);
-      monthEl.textContent = pad(gm);
-      yearEl.textContent = String(gy);
-    }
-
-    nameEl.textContent = weekDays[now.getDay()];
-  }
-
-  function cycle() {
-    active = (active + 1) % 3;
-    update();
-  }
-
-  var entry = document.getElementById("calEntry");
-  entry.classList.add("fade");
-  update();
-  setTimeout(function () { entry.classList.remove("fade"); }, 50);
-
-  setInterval(function () {
-    entry.classList.add("fade");
-    setTimeout(function () {
-      cycle();
-      entry.classList.remove("fade");
-    }, 300);
-  }, 4000);
-
-  document.getElementById("sidebarCalendar").addEventListener("click", function () {
-    entry.classList.add("fade");
-    setTimeout(function () {
-      cycle();
-      entry.classList.remove("fade");
-    }, 300);
-  });
-
   document.getElementById("homeBtn").addEventListener("click", function () {
     window.location.href = "/";
   });
