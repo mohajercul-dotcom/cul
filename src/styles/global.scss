@@ -547,18 +547,18 @@ $card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#5b629
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: $red-l;
+  background: #fff;
   border: none;
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
-  color: #fff;
+  color: $dark;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s, transform 0.2s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  &:hover { background: $red; transform: scale(1.1); }
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  &:hover { transform: scale(1.1); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
 }
 
 .modal-header {
