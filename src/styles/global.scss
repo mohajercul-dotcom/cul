@@ -481,7 +481,7 @@ $card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#5b629
   p { font-size: 0.84rem; line-height: 2; opacity: 0.75; }
 }
 
-.modal-close {
+.modal-box .modal-close {
   position: absolute;
   top: 12px; left: 12px;
   width: 30px; height: 30px;
@@ -540,7 +540,7 @@ $card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#5b629
   border: 1px solid rgba(255,255,255,0.06);
 }
 
-.modal-close {
+.modal .modal-close {
   position: absolute;
   top: 12px;
   left: 14px;
@@ -559,6 +559,12 @@ $card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#5b629
   transition: transform 0.2s, box-shadow 0.2s;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   &:hover { transform: scale(1.1); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+}
+body.dark .modal .modal-close {
+  background: #fff;
+  color: $dark;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  &:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
 }
 
 .modal-header {
