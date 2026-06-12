@@ -125,20 +125,27 @@ function persianNum(n: number): string {
     <!-- Contact Modal -->
     <div class="modal-ol" id="contactModal">
       <div class="modal">
-        <button class="modal-close" id="modalClose">✕</button>
-        <div class="modal-title">تماس با ما</div>
+        <button class="modal-close" id="contactModalClose">✕</button>
+        <div class="modal-header">
+          <div class="modal-icon material-symbols-outlined">forum</div>
+          <div class="modal-title">تماس با ما</div>
+          <div class="modal-sub">راه‌های ارتباطی</div>
+        </div>
         <div class="modal-body">
           <a href="mailto:mohajercul@gmail.com" class="modal-link">
-            <span class="material-symbols-outlined">mail</span>
-            <span>تماس از طریق ایمیل</span>
+            <span class="ml-icon material-symbols-outlined">mail</span>
+            <span class="ml-text">تماس از طریق ایمیل</span>
+            <span class="ml-arrow material-symbols-outlined">chevron_left</span>
           </a>
           <a href="https://t.me/mohebkhatib" target="_blank" rel="noopener" class="modal-link">
-            <span class="material-symbols-outlined">send</span>
-            <span>پشتیبانی در تلگرام</span>
+            <span class="ml-icon material-symbols-outlined">send</span>
+            <span class="ml-text">پشتیبانی در تلگرام</span>
+            <span class="ml-arrow material-symbols-outlined">chevron_left</span>
           </a>
           <a href="https://t.me/Ghn2459" target="_blank" rel="noopener" class="modal-link">
-            <span class="material-symbols-outlined">send</span>
-            <span>ارتباط با مدیریت</span>
+            <span class="ml-icon material-symbols-outlined">person</span>
+            <span class="ml-text">ارتباط با مدیریت</span>
+            <span class="ml-arrow material-symbols-outlined">chevron_left</span>
           </a>
         </div>
       </div>
@@ -153,7 +160,7 @@ function persianNum(n: number): string {
 
       var contactBtn = document.getElementById("contactBtn");
       var modal = document.getElementById("contactModal");
-      var modalClose = document.getElementById("modalClose");
+      var modalClose = document.getElementById("contactModalClose");
 
       contactBtn.addEventListener("click", function () {
         modal.classList.add("open");

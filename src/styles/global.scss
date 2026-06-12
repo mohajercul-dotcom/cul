@@ -18,17 +18,11 @@ $dt-light: $light;
 html, body { height: 100%; }
 
 body {
-  --modal-ol: rgba(56, 25, 50, 0.85);
-  --modal-bg: #{$dark};
-  --modal-txt: #{$light};
   font-family: "Vazirmatn", sans-serif;
   background: $light;
   color: $dark;
   direction: rtl;
   &.dark {
-    --modal-ol: rgba(255, 243, 230, 0.85);
-    --modal-bg: #{$dt-light};
-    --modal-txt: #{$dark};
     background: $dark;
     color: $dt-light;
   }
@@ -526,71 +520,106 @@ $card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#5b629
   display: none;
   position: fixed;
   inset: 0;
-  background: var(--modal-ol);
+  background: rgba(0,0,0,0.6);
   z-index: 1000;
   justify-content: center;
   align-items: center;
+  backdrop-filter: blur(4px);
 }
 .modal-ol.open { display: flex; }
 
 .modal {
-  background: var(--modal-bg);
-  color: var(--modal-txt);
-  border-radius: 16px;
-  padding: 32px 28px 24px;
-  min-width: 280px;
-  max-width: 360px;
+  background: linear-gradient(145deg, #2d142c, #1f0d1e);
+  color: $light;
+  border-radius: 20px;
+  padding: 36px 28px 24px;
+  min-width: 290px;
+  max-width: 340px;
   position: relative;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.06);
 }
 
 .modal-close {
   position: absolute;
-  top: 8px;
-  left: 12px;
-  background: none;
+  top: 12px;
+  left: 14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
   border: none;
-  font-size: 18px;
+  font-size: 14px;
   cursor: pointer;
-  color: rgba(255,255,255,0.5);
-  body.dark & { color: rgba(56,25,50,0.5); }
+  color: rgba(255,255,255,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  &:hover { background: rgba(255,255,255,0.12); color: #fff; }
 }
 
-.modal-title {
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: 16px;
+.modal-header {
   text-align: center;
+  margin-bottom: 24px;
+}
+.modal-icon {
+  font-size: 32px;
+  color: $red-l;
+  margin-bottom: 8px;
+}
+.modal-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.modal-sub {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 4px;
 }
 
 .modal-body {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 .modal-link {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 10px;
-  background: rgba($dark, 0.04);
-  color: var(--modal-txt);
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  color: $light;
   text-decoration: none;
-  font-size: 0.85rem;
-  transition: background 0.2s;
-
-  body.dark & { background: rgba($dt-light, 0.04); }
+  font-size: 0.9rem;
+  transition: background 0.25s, transform 0.2s;
+  border: 1px solid rgba(255,255,255,0.04);
+  position: relative;
 }
 .modal-link:hover {
-  background: rgba($dark, 0.08);
-  body.dark & { background: rgba($dt-light, 0.08); }
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.1);
+  transform: translateX(-4px);
 }
-.modal-link .material-symbols-outlined {
-  font-size: 20px;
-  color: $red;
-  body.dark & { color: $red-l; }
+.ml-icon {
+  font-size: 22px !important;
+  color: $red-l !important;
+  flex-shrink: 0;
+}
+.ml-text {
+  flex: 1;
+  font-weight: 500;
+}
+.ml-arrow {
+  font-size: 18px !important;
+  color: rgba(255,255,255,0.2) !important;
+  transition: color 0.2s;
+}
+.modal-link:hover .ml-arrow {
+  color: rgba(255,255,255,0.5) !important;
 }
 
 @media (max-width: 640px) {
