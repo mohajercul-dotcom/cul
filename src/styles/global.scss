@@ -547,7 +547,7 @@ $card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#5b629
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #fff;
+  background: $light;
   border: none;
   font-size: 16px;
   font-weight: 700;
@@ -557,14 +557,14 @@ $card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#5b629
   align-items: center;
   justify-content: center;
   transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  &:hover { transform: scale(1.1); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  &:hover { transform: scale(1.1); box-shadow: 0 4px 12px rgba(0,0,0,0.25); }
 }
 body.dark .modal .modal-close {
-  background: #fff;
+  background: $light;
   color: $dark;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  &:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  &:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.25); }
 }
 
 .modal-header {
