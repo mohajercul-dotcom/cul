@@ -649,6 +649,78 @@ $card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#5b629
 }
 
 /* ─── Responsive ─── */
+/* ─── Contact Modal ─── */
+.modal-ol {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--modal-ol);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+.modal-ol.open { display: flex; }
+
+.modal {
+  background: var(--modal-bg);
+  color: var(--modal-txt);
+  border-radius: 16px;
+  padding: 32px 28px 24px;
+  min-width: 280px;
+  max-width: 360px;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+.modal-close {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: rgba(255,255,255,0.5);
+  body.dark & { color: rgba(56,25,50,0.5); }
+}
+
+.modal-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba($dark, 0.04);
+  color: var(--modal-txt);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+
+  body.dark & { background: rgba($dt-light, 0.04); }
+}
+.modal-link:hover {
+  background: rgba($dark, 0.08);
+  body.dark & { background: rgba($dt-light, 0.08); }
+}
+.modal-link .material-symbols-outlined {
+  font-size: 20px;
+  color: $red;
+  body.dark & { color: $red-l; }
+}
+
 @media (max-width: 640px) {
   .page { gap: 6px; padding: 6px; }
 
