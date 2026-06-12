@@ -155,6 +155,9 @@ function persianNum(n: number): string {
     <script>
       document.body.classList.add("dark");
 
+      function lockScroll() { document.body.style.overflow = "hidden"; }
+      function unlockScroll() { document.body.style.overflow = ""; }
+
       document.getElementById("homeBtn").addEventListener("click", function () {
         window.location.href = "/";
       });
@@ -165,14 +168,19 @@ function persianNum(n: number): string {
 
       contactBtn.addEventListener("click", function () {
         modal.classList.add("open");
+        lockScroll();
       });
 
       modalClose.addEventListener("click", function () {
         modal.classList.remove("open");
+        unlockScroll();
       });
 
       modal.addEventListener("click", function (e) {
-        if (e.target === modal) modal.classList.remove("open");
+        if (e.target === modal) {
+          modal.classList.remove("open");
+          unlockScroll();
+        }
       });
     </script>
   </body>
