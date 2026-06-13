@@ -6,14 +6,22 @@ export interface Props {
   img?: string;
   logo?: string;
   pastel?: string;
+  status: "completed" | "in-progress" | "queued";
 }
-const { name, desc, index, img, logo, pastel } = Astro.props;
+const { name, desc, index, img, logo, pastel, status } = Astro.props;
 const num = String(index + 1).padStart(2, "0");
 const isPastel = pastel !== undefined;
 const style = isPastel ? `--i: ${index}; --pastel: ${pastel}` : `--i: ${index}; --img: url(${img})`;
+
+const statusLabel: Record<string, string> = {
+  "completed": "تکمیل شده",
+  "in-progress": "در دست ساخت",
+  "queued": "در نوبت",
+};
 ---
 
 <article class="card" class:list={{ "card-pastel": isPastel }} {style}>
+  <span class="card-badge" data-status={status}>{statusLabel[status]}</span>
   {isPastel ? (
     <>
       <div class="card-bg-pastel"></div>
