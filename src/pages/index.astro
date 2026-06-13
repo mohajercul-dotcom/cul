@@ -21,7 +21,8 @@ const projects: Project[] = [
 ];
 
 import stats from "../data/stats.json";
-import about from "../data/about.json";
+import aboutRaw from "../data/about.txt?raw";
+const paragraphs = aboutRaw.trim().split(/\n\n+/).map(p => p.replace(/\*([^*]+)\*/g, '<strong>$1</strong>'));
 const { completed, inProgress, queued, activePercent: pct } = stats;
 
 function persianNum(n: number): string {
@@ -57,7 +58,7 @@ function persianNum(n: number): string {
           </div>
 
           <div class="about">
-            {about.paragraphs.map((p) => <p set:html={p} />)}
+            {paragraphs.map((p) => <p set:html={p} />)}
           </div>
 
           <div class="menu-circles">
