@@ -22,7 +22,7 @@ const projects: Project[] = [
 
 import stats from "../data/stats.json";
 import aboutRaw from "../data/about.txt?raw";
-const paragraphs = aboutRaw.trim().split(/\n\n+/).map(p => p.replace(/\*([^*]+)\*/g, '<strong>$1</strong>'));
+const paragraphs = aboutRaw.trim().split(/\n\n+/).map(p => p.replace(/\*([^*]+)\*/g, '<strong>$1</strong>').replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>'));
 const { completed, inProgress, queued, activePercent: pct } = stats;
 
 function persianNum(n: number): string {
