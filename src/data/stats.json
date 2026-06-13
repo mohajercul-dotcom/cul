@@ -1,6 +1,14 @@
 {
-  "completed": 2,
-  "inProgress": 1,
-  "queued": 4,
-  "activePercent": 65
+  "stats": {
+    "completed": 2,
+    "inProgress": 1,
+    "queued": 4,
+    "activePercent": 65
+  },
+  "statuses": {
+    "completed": { "label": "تکمیل شده", "color": "#2ecc71" },
+    "in-progress": { "label": "در دست ساخت", "color": "#f39c12" },
+    "queued": { "label": "در نوبت", "color": "#95a5a6" },
+    "active": { "label": "پروژه فعال", "color": "#3498db" }
+  }
 }
