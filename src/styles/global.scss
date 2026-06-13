@@ -243,7 +243,7 @@ body {
   padding: 10px 14px;
   border-radius: 10px;
   background: rgba($dark, 0.04);
-  border-right: 6px solid var(--stat-color);
+  border-right: 4px solid var(--stat-color);
   position: relative;
 
   body.dark & { background: rgba($dt-light, 0.04); }
