@@ -3,6 +3,10 @@ import "../styles/global.scss";
 import ProjectCard from "../components/ProjectCard.astro";
 import HomeIcon from "../components/icons/HomeIcon.astro";
 import ForumIcon from "../components/icons/ForumIcon.astro";
+import MailIcon from "../components/icons/MailIcon.astro";
+import SendIcon from "../components/icons/SendIcon.astro";
+import PersonIcon from "../components/icons/PersonIcon.astro";
+import ChevronLeftIcon from "../components/icons/ChevronLeftIcon.astro";
 
 interface Project {
   name: string;
@@ -137,19 +141,19 @@ function persianNum(n: number): string {
         </div>
         <div class="modal-body">
           <a href="mailto:mohajercul@gmail.com" class="modal-link">
-            <span class="ml-icon material-symbols-outlined">mail</span>
+            <MailIcon class="ml-icon" />
             <span class="ml-text">تماس از طریق ایمیل</span>
-            <span class="ml-arrow material-symbols-outlined">chevron_left</span>
+            <ChevronLeftIcon class="ml-arrow" />
           </a>
           <a href="https://t.me/mohebkhatib" target="_blank" rel="noopener" class="modal-link">
-            <span class="ml-icon material-symbols-outlined">send</span>
+            <SendIcon class="ml-icon" />
             <span class="ml-text">پشتیبانی در تلگرام</span>
-            <span class="ml-arrow material-symbols-outlined">chevron_left</span>
+            <ChevronLeftIcon class="ml-arrow" />
           </a>
           <a href="https://t.me/Ghn2459" target="_blank" rel="noopener" class="modal-link">
-            <span class="ml-icon material-symbols-outlined">person</span>
+            <PersonIcon class="ml-icon" />
             <span class="ml-text">ارتباط با مدیریت</span>
-            <span class="ml-arrow material-symbols-outlined">chevron_left</span>
+            <ChevronLeftIcon class="ml-arrow" />
           </a>
         </div>
       </div>

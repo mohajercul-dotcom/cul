@@ -1,13 +1,6 @@
 @use "sass:list";
 @import url("https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;900&family=Rubik:wght@300;400;500;700&family=Vazirmatn:wght@300;400;500;700&display=swap");
 
-@font-face {
-  font-family: "Material Symbols Outlined";
-  font-style: normal;
-  font-weight: 100 700;
-  src: url("/fonts/MaterialSymbolsOutlined.woff2") format("woff2");
-}
-
 $dark: #381932;
 $light: #fff3e6;
 $red: #c44536;
@@ -128,24 +121,6 @@ body {
     opacity: 1;
     transform: translateY(-50%) translateX(0);
   }
-}
-
-/* Material Symbols */
-.material-symbols-outlined {
-  font-family: "Material Symbols Outlined";
-  font-weight: normal;
-  font-style: normal;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-feature-settings: "liga";
-  -webkit-font-smoothing: antialiased;
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
 .icon-svg {
@@ -711,6 +686,8 @@ body.dark .modal .modal-close {
 }
 .ml-icon {
   font-size: 22px !important;
+  width: 22px;
+  height: 22px;
   color: $red-l !important;
   flex-shrink: 0;
 }
@@ -720,6 +697,8 @@ body.dark .modal .modal-close {
 }
 .ml-arrow {
   font-size: 18px !important;
+  width: 18px;
+  height: 18px;
   color: rgba(255,255,255,0.2) !important;
   transition: color 0.2s;
 }
@@ -791,7 +770,6 @@ body.dark .modal .modal-close {
     padding: 0;
   }
   .icon-circle { width: 36px; height: 36px; }
-  .material-symbols-outlined { font-size: 20px; }
   .grid { grid-template-columns: 1fr; gap: 10px; }
   .card-pastel { height: auto; flex-direction: row; align-items: stretch; justify-content: flex-start; }
   .card-pastel .card-section-top { flex: none; width: 33%; display: flex; align-items: center; justify-content: center; padding: 12px; }
