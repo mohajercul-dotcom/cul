@@ -148,6 +148,12 @@ body {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
+.icon-svg {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
 
 
 /* ─── Content ─── */
@@ -662,6 +668,8 @@ body.dark .modal .modal-close {
 }
 .modal-icon {
   font-size: 32px;
+  width: 32px;
+  height: 32px;
   color: $red-l;
   margin-bottom: 8px;
 }
