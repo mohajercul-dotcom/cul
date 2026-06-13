@@ -22,6 +22,7 @@ const projects: Project[] = [
 
 import stats from "../data/stats.json";
 import aboutRaw from "../data/about.txt?raw";
+import statuses from "../data/statuses.json";
 const paragraphs = aboutRaw.trim().split(/\n\n+/).map(p => p.replace(/\*([^*]+)\*/g, '<strong>$1</strong>').replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>'));
 const { completed, inProgress, queued, activePercent: pct } = stats;
 
@@ -68,15 +69,15 @@ function persianNum(n: number): string {
 
           <div class="stats">
             <div class="stat-item">
-              <span class="stat-label"><span class="stat-dot" data-stat="completed"></span> پروژه تکمیل شده</span>
+              <span class="stat-label"><span class="stat-dot" style="background:{statuses.completed.color}"></span> پروژه تکمیل شده</span>
               <span class="stat-num">{persianNum(completed)}</span>
             </div>
             <div class="stat-item">
-              <span class="stat-label"><span class="stat-dot" data-stat="in-progress"></span> پروژه در دست ساخت</span>
+              <span class="stat-label"><span class="stat-dot" style="background:{statuses['in-progress'].color}"></span> پروژه در دست ساخت</span>
               <span class="stat-num">{persianNum(inProgress)}</span>
             </div>
             <div class="stat-item">
-              <span class="stat-label"><span class="stat-dot" data-stat="active"></span> پروژه فعال</span>
+              <span class="stat-label"><span class="stat-dot" style="background:{statuses.active.color}"></span> پروژه فعال</span>
               <span class="stat-num">
                 {pct === 100 && <span class="stat-check">✓</span>}
                 {persianNum(pct)}%
@@ -86,7 +87,7 @@ function persianNum(n: number): string {
               </div>
             </div>
             <div class="stat-item">
-              <span class="stat-label"><span class="stat-dot" data-stat="queued"></span> پروژه در نوبت</span>
+              <span class="stat-label"><span class="stat-dot" style="background:{statuses.queued.color}"></span> پروژه در نوبت</span>
               <span class="stat-num">{persianNum(queued)}</span>
             </div>
           </div>

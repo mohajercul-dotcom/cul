@@ -265,11 +265,6 @@ body {
   border-radius: 50%;
   display: inline-block;
   flex-shrink: 0;
-
-  &[data-stat="completed"] { background: #2ecc71; }
-  &[data-stat="in-progress"] { background: #f39c12; }
-  &[data-stat="active"] { background: #3498db; }
-  &[data-stat="queued"] { background: #95a5a6; }
 }
 
 .stat-num {
@@ -407,22 +402,6 @@ body {
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-
-    &[data-status="completed"] {
-      background: rgba(46, 204, 113, 0.18);
-      color: #2ecc71;
-      border: 1px solid rgba(46, 204, 113, 0.4);
-    }
-    &[data-status="in-progress"] {
-      background: rgba(243, 156, 18, 0.18);
-      color: #f39c12;
-      border: 1px solid rgba(243, 156, 18, 0.4);
-    }
-    &[data-status="queued"] {
-      background: rgba(149, 165, 166, 0.18);
-      color: #95a5a6;
-      border: 1px solid rgba(149, 165, 166, 0.4);
-    }
   }
 }
 
