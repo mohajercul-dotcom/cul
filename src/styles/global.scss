@@ -73,9 +73,9 @@ body {
   &::after {
     content: attr(data-tooltip);
     position: absolute;
-    bottom: calc(100% + 10px);
-    left: 50%;
-    transform: translateX(-50%) translateY(6px);
+    top: 50%;
+    left: calc(100% + 10px);
+    transform: translateY(-50%) translateX(-6px);
     opacity: 0;
     padding: 7px 14px;
     border-radius: 10px;
@@ -100,7 +100,7 @@ body {
 
   &:hover::after {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(-50%) translateX(0);
   }
 }
 
