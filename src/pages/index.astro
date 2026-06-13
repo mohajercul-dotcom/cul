@@ -1,6 +1,8 @@
 ---
 import "../styles/global.scss";
 import ProjectCard from "../components/ProjectCard.astro";
+import HomeIcon from "../components/icons/HomeIcon.astro";
+import ForumIcon from "../components/icons/ForumIcon.astro";
 
 interface Project {
   name: string;
@@ -63,8 +65,8 @@ function persianNum(n: number): string {
           </div>
 
           <div class="menu-circles">
-            <button class="icon-circle" id="homeBtn" data-tooltip="خانه"><img src="/icons/home.svg" alt="خانه" class="icon-svg" /></button>
-            <button class="icon-circle" id="contactBtn" data-tooltip="تماس با ما"><img src="/icons/forum.svg" alt="تماس با ما" class="icon-svg" /></button>
+            <button class="icon-circle" id="homeBtn" data-tooltip="خانه"><HomeIcon class="icon-svg" /></button>
+            <button class="icon-circle" id="contactBtn" data-tooltip="تماس با ما"><ForumIcon class="icon-svg" /></button>
           </div>
 
           <div class="stats">
@@ -129,7 +131,7 @@ function persianNum(n: number): string {
       <div class="modal">
         <button class="modal-close" id="contactModalClose">✕</button>
         <div class="modal-header">
-          <img src="/icons/forum.svg" alt="تماس با ما" class="modal-icon icon-svg" />
+          <ForumIcon class="modal-icon icon-svg" />
           <div class="modal-title">تماس با ما</div>
           <div class="modal-sub">راه‌های ارتباطی</div>
         </div>
