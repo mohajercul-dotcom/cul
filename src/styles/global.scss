@@ -148,6 +148,8 @@ body {
   padding-right: calc(clamp(16px, 2.2vw, 36px) + 13px);
   position: relative;
   overflow: visible;
+  min-height: 0;
+  height: 100%;
 
   .logo-wrap { text-align: center; }
 
@@ -178,10 +180,13 @@ body {
     overflow-y: auto;
     min-height: 0;
     scrollbar-width: thin;
+    scrollbar-color: rgba(255, 243, 230, 0.2) transparent;
+    scrollbar-gutter: stable;
+    padding-left: 15px;
 
     &::-webkit-scrollbar { width: 4px; }
     &::-webkit-scrollbar-track { background: transparent; }
-    &::-webkit-scrollbar-thumb { background: rgba(56, 25, 50, 0.2); border-radius: 4px; }
+    &::-webkit-scrollbar-thumb { background: rgba(255, 243, 230, 0.2); border-radius: 4px; }
 
     body.dark & {
       color: $dt-light;
@@ -734,9 +739,12 @@ body.dark .modal .modal-close {
       font-size: 0.78rem; line-height: 1.7;
       max-height: 268px;
       scrollbar-width: thin;
+      scrollbar-color: rgba(255, 243, 230, 0.2) transparent;
+      scrollbar-gutter: stable;
+      padding-left: 15px;
       &::-webkit-scrollbar { width: 3px; }
       &::-webkit-scrollbar-track { background: transparent; }
-      &::-webkit-scrollbar-thumb { background: rgba(255, 243, 230, 0.15); border-radius: 3px; }
+      &::-webkit-scrollbar-thumb { background: rgba(255, 243, 230, 0.2); border-radius: 3px; }
     }
     .menu-circles { grid-column: 1; grid-row: 2; }
     .menu-circles .icon-circle::before,
