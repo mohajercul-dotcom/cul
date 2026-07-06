@@ -896,7 +896,23 @@ body.dark .project-page {
   .project-page { padding: 20px; max-width: 100%; }
 
   .project-page .back-link {
-    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: $dt-light;
+    color: rgba(56,25,50,0.7);
+    font-size: 0;
+    margin: 0 0 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    body.dark & { background: $dt-light; }
+  }
+  .project-page .back-icon {
+    width: 20px;
+    height: 20px;
+    body.dark & { color: rgba(56,25,50,0.7); }
   }
 
   .project-page .project-header h1 {
