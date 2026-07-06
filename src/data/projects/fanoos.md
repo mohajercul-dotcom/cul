@@ -6,9 +6,9 @@ status: completed
 logo: /cards/fanoos.svg
 pastel: "#B5EAD7"
 links:
-  site: ""
-  telegram: ""
-  instagram: ""
+  site: "https://fanoosarea.vercel.app/"
+  telegram: "https://t.me/fanoosarea"
+  instagram: "https://www.instagram.com/fanoosarea"
 pdfs:
   - title: "بروشور معرفی فانوس"
     file: ""
