@@ -2,8 +2,8 @@
   "stats": {
     "completed": 2,
     "inProgress": 1,
-    "queued": 4,
-    "activePercent": 65
+    "queued": 3,
+    "activePercent": 50
   },
   "statuses": {
     "completed": { "label": "تکمیل شده", "color": "#2ecc71" },

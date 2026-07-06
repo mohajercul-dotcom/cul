@@ -1,0 +1,106 @@
+---
+import "../../styles/global.scss";
+import HomeIcon from "../../components/icons/HomeIcon.astro";
+import ForumIcon from "../../components/icons/ForumIcon.astro";
+import MailIcon from "../../components/icons/MailIcon.astro";
+import SendIcon from "../../components/icons/SendIcon.astro";
+import PersonIcon from "../../components/icons/PersonIcon.astro";
+import ChevronLeftIcon from "../../components/icons/ChevronLeftIcon.astro";
+
+export async function getStaticPaths() {
+  const modules = import.meta.glob('../../data/projects/*.md', { eager: true });
+  return Object.values(modules).map((mod: any) => ({
+    params: { slug: mod.frontmatter.slug },
+    props: { project: mod },
+  }));
+}
+
+const { project } = Astro.props;
+const { frontmatter, Content } = project;
+const p = frontmatter;
+---
+
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{p.name} | مهاجر</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="page">
+      <div class="project-page">
+        <a href="/" class="back-link">
+          <ChevronLeftIcon class="back-icon" />
+          بازگشت
+        </a>
+
+        <header class="project-header">
+          <h1>{p.name}</h1>
+          <p class="project-desc">{p.desc}</p>
+        </header>
+
+        <div class="project-content">
+          <Content />
+        </div>
+
+        <!-- Links -->
+        <div class="project-links">
+          {p.links?.site && (
+            <a href={p.links.site} target="_blank" rel="noopener" class="project-link">
+              <span>وبسایت پروژه</span>
+            </a>
+          )}
+          {p.links?.telegram && (
+            <a href={p.links.telegram} target="_blank" rel="noopener" class="project-link">
+              <SendIcon class="pl-icon" />
+              <span>کانال تلگرام</span>
+            </a>
+          )}
+          {p.links?.instagram && (
+            <a href={p.links.instagram} target="_blank" rel="noopener" class="project-link">
+              <span>اینستاگرام</span>
+            </a>
+          )}
+        </div>
+
+        <!-- PDFs -->
+        {p.pdfs && p.pdfs.length > 0 && (
+          <div class="project-pdfs">
+            <h2>کتابخانه</h2>
+            {p.pdfs.filter(pdf => pdf.file).map(pdf => (
+              <a href={pdf.file} target="_blank" rel="noopener" class="pdf-link">
+                {pdf.title}
+              </a>
+            ))}
+          </div>
+        )}
+
+        <!-- Share -->
+        <button class="share-btn" id="shareBtn" data-title="{p.name}">
+          اشتراک‌گذاری
+        </button>
+      </div>
+    </div>
+
+    <script>
+      document.body.classList.add("dark");
+
+      document.getElementById("shareBtn")?.addEventListener("click", function() {
+        var title = this.getAttribute("data-title") + " | مهاجر";
+        if (navigator.share) {
+          navigator.share({ title: title, url: window.location.href });
+        } else {
+          navigator.clipboard.writeText(window.location.href);
+          this.textContent = "لینک کپی شد!";
+          var btn = this;
+          setTimeout(function() { btn.textContent = "اشتراک‌گذاری"; }, 2000);
+        }
+      });
+    </script>
+  </body>
+</html>

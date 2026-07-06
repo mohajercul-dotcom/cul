@@ -715,6 +715,142 @@ body.dark .modal .modal-close {
   color: rgba(255,255,255,0.5) !important;
 }
 
+/* ─── Project Page ─── */
+.project-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  direction: rtl;
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba($dt-light, 0.6);
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-bottom: 32px;
+    transition: color 0.2s;
+    &:hover { color: $dt-light; }
+  }
+  .back-icon { width: 18px; height: 18px; color: currentColor; }
+
+  .project-header {
+    margin-bottom: 28px;
+    h1 {
+      font-family: "Cairo", sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      body.dark & { color: $dt-light; }
+    }
+    .project-desc {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      line-height: 1.8;
+      body.dark & { color: $dt-light; }
+    }
+  }
+
+  .project-content {
+    font-size: 0.9rem;
+    line-height: 2.2;
+    opacity: 0.8;
+    body.dark & { color: $dt-light; }
+
+    h2 {
+      font-family: "Cairo", sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 28px 0 12px;
+      body.dark & { color: $dt-light; }
+    }
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 20px 0 8px;
+    }
+    p { margin-bottom: 1em; }
+    ul { padding-right: 20px; margin-bottom: 1em; }
+    li { margin-bottom: 4px; }
+  }
+
+  .project-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 32px;
+  }
+  .project-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: rgba($dt-light, 0.04);
+    color: $dt-light;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.25s;
+    border: 1px solid rgba($dt-light, 0.06);
+    &:hover { background: rgba($dt-light, 0.08); }
+  }
+  .pl-icon { width: 20px; height: 20px; color: $red-l; }
+
+  .project-pdfs {
+    margin-top: 28px;
+    h2 {
+      font-family: "Cairo", sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      body.dark & { color: $dt-light; }
+    }
+  }
+  .pdf-link {
+    display: block;
+    padding: 12px 16px;
+    border-radius: 10px;
+    background: rgba($dt-light, 0.04);
+    color: $dt-light;
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+    border: 1px solid rgba($dt-light, 0.06);
+    &::before { content: "📄 "; }
+    &:hover { background: rgba($dt-light, 0.08); }
+  }
+
+  .share-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-top: 32px;
+    border-radius: 14px;
+    border: none;
+    background: $red;
+    color: #fff;
+    font-family: "Vazirmatn", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.2s;
+    &:hover { background: $red-l; transform: translateY(-1px); }
+  }
+}
+
+body.dark .project-page {
+  .project-link, .pdf-link {
+    background: rgba($dt-light, 0.04);
+    color: $dt-light;
+    &:hover { background: rgba($dt-light, 0.08); }
+  }
+}
+
+@media (max-width: 640px) {
+  .project-page { padding: 20px 16px; }
+}
+
 @media (max-width: 640px) {
   .page { gap: 6px; padding: 6px; }
 

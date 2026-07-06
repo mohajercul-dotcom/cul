@@ -8,23 +8,21 @@ import SendIcon from "../components/icons/SendIcon.astro";
 import PersonIcon from "../components/icons/PersonIcon.astro";
 import ChevronLeftIcon from "../components/icons/ChevronLeftIcon.astro";
 
-interface Project {
-  name: string;
-  desc: string;
-  img?: string;
-  logo?: string;
-  pastel?: string;
-  status: "completed" | "in-progress" | "queued";
-}
-
-const projects: Project[] = [
-  { name: "مکتبة العلوم", desc: "کتابخانه دیجیتال هزاران جلد کتاب و مقاله در فقه، اصول، حدیث و تفسیر", logo: "/cards/fanoos.svg", pastel: "#B5EAD7", status: "completed" },
-  { name: "نور الهدی", desc: "دانشنامه تعاملی قرآن با جستجوی پیشرفته، تفسیر تطبیقی و ترجمه چندزبانه", logo: "/cards/sahaba.svg", pastel: "#FFDAC1", status: "in-progress" },
-  { name: "وقت الصلاة", desc: "سامانه اوقات شرعی با قبله‌نما، تقویم اسلامی و یادآوری اذان هوشمند", img: "/cards/card3.jpg", status: "queued" },
-  { name: "سوق البركة", desc: "بازارچه محصولات فرهنگی و مذهبی، کتب نفیس و نرم‌افزارهای دینی", img: "/cards/card4.jpg", status: "queued" },
-  { name: "منبر الحکمة", desc: "پایگاه سخنرانی‌ها و مقالات اساتید برجسته در موضوعات اعتقادی و اخلاقی", img: "/cards/card5.jpg", status: "queued" },
-  { name: "دار السلام", desc: "شبکه اجتماعی خانواده محور با رویکرد سبک زندگی اسلامی و محتوای سالم", img: "/cards/card6.jpg", status: "queued" },
-];
+const projectFiles = await Astro.glob('../data/projects/*.md');
+const projects = projectFiles
+  .map(p => ({
+    name: p.frontmatter.name,
+    slug: p.frontmatter.slug,
+    order: p.frontmatter.order,
+    desc: p.frontmatter.desc,
+    img: p.frontmatter.img,
+    logo: p.frontmatter.logo,
+    pastel: p.frontmatter.pastel,
+    status: p.frontmatter.status,
+    links: p.frontmatter.links,
+    pdfs: p.frontmatter.pdfs || [],
+  }))
+  .sort((a, b) => a.order - b.order);
 
 import data from "../data/stats.json";
 import aboutRaw from "../data/about.md?raw";
@@ -104,7 +102,9 @@ function persianNum(n: number): string {
           <div class="top-label">پروژه‌ها · PROJECTS</div>
           <div class="grid">
             {projects.map((p, i) => (
-              <ProjectCard name={p.name} desc={p.desc} index={i} img={p.img} logo={p.logo} pastel={p.pastel} status={p.status} />
+              <a href={`/projects/${p.slug}`} style="text-decoration:none;color:inherit;display:contents">
+                <ProjectCard name={p.name} desc={p.desc} index={i} img={p.img} logo={p.logo} pastel={p.pastel} status={p.status} />
+              </a>
             ))}
           </div>
         </div>
