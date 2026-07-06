@@ -9,6 +9,7 @@ import ChevronLeftIcon from "../../components/icons/ChevronLeftIcon.astro";
 import GlobeIcon from "../../components/icons/GlobeIcon.astro";
 import InstagramIcon from "../../components/icons/InstagramIcon.astro";
 import ShareIcon from "../../components/icons/ShareIcon.astro";
+import DownloadIcon from "../../components/icons/DownloadIcon.astro";
 
 export async function getStaticPaths() {
   const modules = import.meta.glob('../../data/projects/*.md', { eager: true });
@@ -77,7 +78,8 @@ const p = frontmatter;
           </button>
           {p.pdfs && p.pdfs.filter(p => p.file).length > 0 && (
             <a href={p.pdfs.filter(p => p.file)[0].file} target="_blank" rel="noopener" class="action-btn">
-              <span>دانلود</span>
+              <DownloadIcon class="action-icon" />
+              <span>دانلود فایل پروژه</span>
             </a>
           )}
         </div>
