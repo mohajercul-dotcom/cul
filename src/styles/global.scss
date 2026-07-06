@@ -195,6 +195,10 @@ body {
       &::-webkit-scrollbar-thumb { background: rgba(255, 243, 230, 0.2); }
     }
 
+    p + p {
+      margin-top: 1.2em;
+    }
+
     strong {
       font-weight: 600;
       color: $dark;
@@ -724,7 +728,7 @@ body.dark .modal .modal-close {
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: auto auto auto;
-    gap: 8px 16px;
+    gap: 14px 16px;
     width: 100%;
     padding: 16px;
     overflow: visible;
@@ -733,13 +737,14 @@ body.dark .modal .modal-close {
     height: auto;
 
     .logo-wrap { grid-column: 1; grid-row: 1; }
-    .brand-label { display: none; }
+    .brand-label { display: block; font-size: 0.55rem; letter-spacing: 2px; margin-top: 4px; color: inherit; }
     .about {
       grid-column: 2; grid-row: 1 / 4;
       margin: 0;
-      margin-top: 15px;
+      margin-top: 10px;
       font-size: 0.78rem; line-height: 1.7;
-      max-height: 268px;
+      max-height: 330px;
+      overflow-y: auto;
       scrollbar-width: thin;
       scrollbar-color: rgba(255, 243, 230, 0.2) transparent;
       scrollbar-gutter: stable;
@@ -759,7 +764,7 @@ body.dark .modal .modal-close {
     }
   }
 
-  .col-brand .logo-wrap svg { height: 68px; }
+  .col-brand .logo-wrap svg { height: 82px; }
 
   .stat-item { flex-direction: column; gap: 2px; padding: 6px 8px; }
   .stat-label { font-size: 0.45rem; }
