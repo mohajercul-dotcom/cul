@@ -742,13 +742,24 @@ body.dark .modal .modal-close {
   .back-icon { width: 18px; height: 18px; color: currentColor; }
 
   .project-header {
-    margin-bottom: 28px;
+    text-align: center;
+    margin-bottom: 32px;
     h1 {
       font-family: "Cairo", sans-serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 8px;
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 6px;
+      letter-spacing: 2px;
       body.dark & { color: $dt-light; }
+    }
+    &::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      margin: 12px auto 0;
+      border-radius: 2px;
+      background: $red;
     }
   }
 
@@ -885,31 +896,11 @@ body.dark .project-page {
   .project-page { padding: 20px; max-width: 100%; }
 
   .project-page .back-link {
-    position: fixed;
-    bottom: 24px;
-    left: 24px;
-    top: auto;
-    right: auto;
-    z-index: 10;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: $dt-light;
-    color: rgba(56,25,50,0.7);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    justify-content: center;
-    padding: 0;
-    font-size: 0;
-    margin: 0;
-
-    body.dark & { background: $dt-light; }
-
-    &:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    margin-bottom: 20px;
   }
-  .project-page .back-icon {
-    width: 22px;
-    height: 22px;
-    body.dark & { color: rgba(56,25,50,0.7); }
+
+  .project-page .project-header h1 {
+    font-size: 1.6rem;
   }
 }
 
