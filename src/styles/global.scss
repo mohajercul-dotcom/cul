@@ -885,6 +885,34 @@ body.dark .project-page {
 
 @media (max-width: 640px) {
   .project-page { padding: 20px 16px; padding-left: 0; max-width: 100%; }
+
+  .project-page .back-link {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    top: auto;
+    right: auto;
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: $dt-light;
+    color: rgba(56,25,50,0.7);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    justify-content: center;
+    padding: 0;
+    font-size: 0;
+    margin: 0;
+
+    body.dark & { background: $dt-light; }
+
+    &:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+  }
+  .project-page .back-icon {
+    width: 22px;
+    height: 22px;
+    body.dark & { color: rgba(56,25,50,0.7); }
+  }
 }
 
 @media (max-width: 640px) {
