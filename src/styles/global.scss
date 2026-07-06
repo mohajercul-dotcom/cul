@@ -717,12 +717,12 @@ body.dark .modal .modal-close {
 
 /* ─── Project Page ─── */
 .project-page {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 32px 24px;
+  max-width: 100%;
+  width: auto;
+  margin: -12px;
+  padding: 32px 36px;
   direction: rtl;
-  height: 100%;
+  height: calc(100% + 24px);
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 243, 230, 0.2) transparent;
