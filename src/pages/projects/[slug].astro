@@ -53,17 +53,17 @@ const p = frontmatter;
         <!-- Links -->
         <div class="project-links">
           {p.links?.site && (
-            <a href={p.links.site} target="_blank" rel="noopener" class="project-link" title="وبسایت پروژه">
+            <a href={p.links.site} target="_blank" rel="noopener" class="project-link" data-tooltip="وبسایت پروژه">
               <GlobeIcon class="pl-icon" />
             </a>
           )}
           {p.links?.telegram && (
-            <a href={p.links.telegram} target="_blank" rel="noopener" class="project-link" title="کانال تلگرام">
+            <a href={p.links.telegram} target="_blank" rel="noopener" class="project-link" data-tooltip="کانال تلگرام">
               <SendIcon class="pl-icon" />
             </a>
           )}
           {p.links?.instagram && (
-            <a href={p.links.instagram} target="_blank" rel="noopener" class="project-link" title="اینستاگرام">
+            <a href={p.links.instagram} target="_blank" rel="noopener" class="project-link" data-tooltip="اینستاگرام">
               <InstagramIcon class="pl-icon" />
             </a>
           )}
