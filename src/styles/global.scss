@@ -720,12 +720,10 @@ body.dark .modal .modal-close {
   position: absolute;
   inset: 0;
   padding: 32px 24px;
-  padding-left: 0;
   direction: rtl;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 243, 230, 0.2) transparent;
-  scrollbar-gutter: stable;
   &::-webkit-scrollbar { width: 3px; }
   &::-webkit-scrollbar-track { background: transparent; }
   &::-webkit-scrollbar-thumb { background: rgba(255, 243, 230, 0.2); border-radius: 3px; }
@@ -884,7 +882,7 @@ body.dark .project-page {
 }
 
 @media (max-width: 640px) {
-  .project-page { padding: 20px 16px; padding-left: 0; max-width: 100%; }
+  .project-page { padding: 20px 16px; max-width: 100%; }
 
   .project-page .back-link {
     position: fixed;
