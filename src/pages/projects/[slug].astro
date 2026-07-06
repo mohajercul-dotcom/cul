@@ -12,7 +12,8 @@ import ShareIcon from "../../components/icons/ShareIcon.astro";
 import DownloadIcon from "../../components/icons/DownloadIcon.astro";
 
 export async function getStaticPaths() {
-  const modules = import.meta.glob('../../data/projects/*.md', { eager: true });
+  const allModules = import.meta.glob('../../data/*.md', { eager: true });
+  const modules = Object.fromEntries(Object.entries(allModules).filter(([k, v]) => v.frontmatter?.slug));
   return Object.values(modules).map((mod: any) => ({
     params: { slug: mod.frontmatter.slug },
     props: { project: mod },

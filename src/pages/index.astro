@@ -12,7 +12,7 @@ import data from "../data/stats.json";
 import aboutRaw from "../data/about.md?raw";
 const { stats: statsData, statuses, descriptions } = data;
 
-const projectFiles = await Astro.glob('../data/projects/*.md');
+const projectFiles = (await Astro.glob('../data/*.md')).filter(m => m.frontmatter?.slug);
 const projects = projectFiles
   .map(p => ({
     name: p.frontmatter.name,
@@ -26,7 +26,13 @@ const projects = projectFiles
     links: p.frontmatter.links,
     pdfs: p.frontmatter.pdfs || [],
   }))
-  .sort((a, b) => a.order - b.order);
+  .sort((a, b) => {
+    const priority = { "in-progress": 0, completed: 1, queued: 2 };
+    const pa = priority[a.status] ?? 3;
+    const pb = priority[b.status] ?? 3;
+    if (pa !== pb) return pa - pb;
+    return a.order - b.order;
+  });
 const paragraphs = aboutRaw.replace(/\r\n/g, '\n').trim().split(/\n\n+/).map(p => p.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>'));
 const { completed, inProgress, queued, activePercent: pct } = statsData;
 
