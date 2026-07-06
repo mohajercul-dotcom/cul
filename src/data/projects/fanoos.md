@@ -9,6 +9,9 @@ links:
   site: "https://fanoosarea.vercel.app/"
   telegram: "https://t.me/fanoosarea"
   instagram: "https://www.instagram.com/fanoosarea"
+pdfs:
+  - title: "فایل معرفی فانوس"
+    file: "https://drive.proton.me/urls/43D1MDXEVM#7CtToFyiEmDy"
 ---
 
 فانوس فقط یک صفحه نیست...
