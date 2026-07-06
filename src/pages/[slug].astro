@@ -1,18 +1,18 @@
 ---
-import "../../styles/global.scss";
-import HomeIcon from "../../components/icons/HomeIcon.astro";
-import ForumIcon from "../../components/icons/ForumIcon.astro";
-import MailIcon from "../../components/icons/MailIcon.astro";
-import SendIcon from "../../components/icons/SendIcon.astro";
-import PersonIcon from "../../components/icons/PersonIcon.astro";
-import ChevronLeftIcon from "../../components/icons/ChevronLeftIcon.astro";
-import GlobeIcon from "../../components/icons/GlobeIcon.astro";
-import InstagramIcon from "../../components/icons/InstagramIcon.astro";
-import ShareIcon from "../../components/icons/ShareIcon.astro";
-import DownloadIcon from "../../components/icons/DownloadIcon.astro";
+import "../styles/global.scss";
+import HomeIcon from "../components/icons/HomeIcon.astro";
+import ForumIcon from "../components/icons/ForumIcon.astro";
+import MailIcon from "../components/icons/MailIcon.astro";
+import SendIcon from "../components/icons/SendIcon.astro";
+import PersonIcon from "../components/icons/PersonIcon.astro";
+import ChevronLeftIcon from "../components/icons/ChevronLeftIcon.astro";
+import GlobeIcon from "../components/icons/GlobeIcon.astro";
+import InstagramIcon from "../components/icons/InstagramIcon.astro";
+import ShareIcon from "../components/icons/ShareIcon.astro";
+import DownloadIcon from "../components/icons/DownloadIcon.astro";
 
 export async function getStaticPaths() {
-  const allModules = import.meta.glob('../../data/*.md', { eager: true });
+  const allModules = import.meta.glob('../data/*.md', { eager: true });
   const modules = Object.fromEntries(Object.entries(allModules).filter(([k, v]) => v.frontmatter?.slug));
   return Object.values(modules).map((mod: any) => ({
     params: { slug: mod.frontmatter.slug },
