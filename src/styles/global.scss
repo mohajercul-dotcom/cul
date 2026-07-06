@@ -717,7 +717,8 @@ body.dark .modal .modal-close {
 
 /* ─── Project Page ─── */
 .project-page {
-  max-width: 720px;
+  width: 100%;
+  max-width: 900px;
   margin: 0 auto;
   padding: 32px 24px;
   direction: rtl;
@@ -818,21 +819,25 @@ body.dark .modal .modal-close {
   }
 
   .share-btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     width: 100%;
     padding: 14px;
     margin-top: 32px;
     border-radius: 14px;
-    border: none;
-    background: $red;
-    color: #fff;
+    border: 1px solid rgba($dt-light, 0.06);
+    background: rgba($dt-light, 0.04);
+    color: $dt-light;
     font-family: "Vazirmatn", sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.25s, transform 0.2s;
-    &:hover { background: $red-l; transform: translateY(-1px); }
+    transition: background 0.25s;
+    &:hover { background: rgba($dt-light, 0.08); }
   }
+  .share-icon { width: 20px; height: 20px; color: $red-l; }
 }
 
 body.dark .project-page {
@@ -844,7 +849,7 @@ body.dark .project-page {
 }
 
 @media (max-width: 640px) {
-  .project-page { padding: 20px 16px; }
+  .project-page { padding: 20px 16px; max-width: 100%; }
 }
 
 @media (max-width: 640px) {

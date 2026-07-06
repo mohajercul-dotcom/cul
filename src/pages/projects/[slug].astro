@@ -8,6 +8,7 @@ import PersonIcon from "../../components/icons/PersonIcon.astro";
 import ChevronLeftIcon from "../../components/icons/ChevronLeftIcon.astro";
 import GlobeIcon from "../../components/icons/GlobeIcon.astro";
 import InstagramIcon from "../../components/icons/InstagramIcon.astro";
+import ShareIcon from "../../components/icons/ShareIcon.astro";
 
 export async function getStaticPaths() {
   const modules = import.meta.glob('../../data/projects/*.md', { eager: true });
@@ -85,7 +86,8 @@ const p = frontmatter;
 
         <!-- Share -->
         <button class="share-btn" id="shareBtn" data-title="{p.name}">
-          اشتراک‌گذاری
+          <ShareIcon class="share-icon" />
+          <span>اشتراک‌گذاری</span>
         </button>
       </div>
     </div>
