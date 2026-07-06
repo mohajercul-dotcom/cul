@@ -8,13 +8,17 @@ import SendIcon from "../components/icons/SendIcon.astro";
 import PersonIcon from "../components/icons/PersonIcon.astro";
 import ChevronLeftIcon from "../components/icons/ChevronLeftIcon.astro";
 
+import data from "../data/stats.json";
+import aboutRaw from "../data/about.md?raw";
+const { stats: statsData, statuses, descriptions } = data;
+
 const projectFiles = await Astro.glob('../data/projects/*.md');
 const projects = projectFiles
   .map(p => ({
     name: p.frontmatter.name,
     slug: p.frontmatter.slug,
     order: p.frontmatter.order,
-    desc: p.frontmatter.desc,
+    desc: descriptions[p.frontmatter.slug],
     img: p.frontmatter.img,
     logo: p.frontmatter.logo,
     pastel: p.frontmatter.pastel,
@@ -23,10 +27,6 @@ const projects = projectFiles
     pdfs: p.frontmatter.pdfs || [],
   }))
   .sort((a, b) => a.order - b.order);
-
-import data from "../data/stats.json";
-import aboutRaw from "../data/about.md?raw";
-const { stats: statsData, statuses } = data;
 const paragraphs = aboutRaw.replace(/\r\n/g, '\n').trim().split(/\n\n+/).map(p => p.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>'));
 const { completed, inProgress, queued, activePercent: pct } = statsData;
 

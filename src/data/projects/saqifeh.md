@@ -3,7 +3,6 @@ name: سقیفه
 slug: saqifeh
 order: 2
 status: completed
-desc: "مرجعی تخصصی برای گردآوری و معرفی لینک‌های برگزیده‌ی محتوای اهل‌سنت"
 logo: ""
 pastel: "#C7CEEA"
 links:

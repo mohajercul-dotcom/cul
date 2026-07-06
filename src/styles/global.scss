@@ -721,6 +721,8 @@ body.dark .modal .modal-close {
   margin: 0 auto;
   padding: 32px 24px;
   direction: rtl;
+  height: 100%;
+  overflow-y: auto;
 
   .back-link {
     display: inline-flex;
@@ -742,12 +744,6 @@ body.dark .modal .modal-close {
       font-size: 1.6rem;
       font-weight: 700;
       margin-bottom: 8px;
-      body.dark & { color: $dt-light; }
-    }
-    .project-desc {
-      font-size: 0.9rem;
-      opacity: 0.7;
-      line-height: 1.8;
       body.dark & { color: $dt-light; }
     }
   }

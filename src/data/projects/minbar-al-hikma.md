@@ -3,7 +3,6 @@ name: منبر الحکمة
 slug: minbar-al-hikma
 order: 6
 status: queued
-desc: "پایگاه سخنرانی‌ها و مقالات اساتید برجسته در موضوعات اعتقادی و اخلاقی"
 img: /cards/card5.jpg
 links:
   site: ""

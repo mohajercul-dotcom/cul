@@ -3,7 +3,6 @@ name: سوق البركة
 slug: souq-al-baraka
 order: 5
 status: queued
-desc: "بازارچه محصولات فرهنگی و مذهبی، کتب نفیس و نرم‌افزارهای دینی"
 img: /cards/card4.jpg
 links:
   site: ""

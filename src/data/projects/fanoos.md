@@ -3,7 +3,6 @@ name: فانوس
 slug: fanoos
 order: 3
 status: completed
-desc: "کتابخانه دیجیتال هزاران جلد کتاب و مقاله در فقه، اصول، حدیث و تفسیر"
 logo: /cards/fanoos.svg
 pastel: "#B5EAD7"
 links:

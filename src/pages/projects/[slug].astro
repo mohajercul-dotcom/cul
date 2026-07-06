@@ -6,6 +6,8 @@ import MailIcon from "../../components/icons/MailIcon.astro";
 import SendIcon from "../../components/icons/SendIcon.astro";
 import PersonIcon from "../../components/icons/PersonIcon.astro";
 import ChevronLeftIcon from "../../components/icons/ChevronLeftIcon.astro";
+import GlobeIcon from "../../components/icons/GlobeIcon.astro";
+import InstagramIcon from "../../components/icons/InstagramIcon.astro";
 
 export async function getStaticPaths() {
   const modules = import.meta.glob('../../data/projects/*.md', { eager: true });
@@ -41,7 +43,6 @@ const p = frontmatter;
 
         <header class="project-header">
           <h1>{p.name}</h1>
-          <p class="project-desc">{p.desc}</p>
         </header>
 
         <div class="project-content">
@@ -52,6 +53,7 @@ const p = frontmatter;
         <div class="project-links">
           {p.links?.site && (
             <a href={p.links.site} target="_blank" rel="noopener" class="project-link">
+              <GlobeIcon class="pl-icon" />
               <span>وبسایت پروژه</span>
             </a>
           )}
@@ -63,6 +65,7 @@ const p = frontmatter;
           )}
           {p.links?.instagram && (
             <a href={p.links.instagram} target="_blank" rel="noopener" class="project-link">
+              <InstagramIcon class="pl-icon" />
               <span>اینستاگرام</span>
             </a>
           )}

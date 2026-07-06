@@ -3,7 +3,6 @@ name: وقت الصلاة
 slug: waqt-al-salat
 order: 4
 status: queued
-desc: "سامانه اوقات شرعی با قبله‌نما، تقویم اسلامی و یادآوری اذان هوشمند"
 img: /cards/card3.jpg
 links:
   site: ""

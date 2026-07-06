@@ -3,7 +3,6 @@ name: صحابه
 slug: sahaba
 order: 1
 status: in-progress
-desc: "دانشنامه تعاملی قرآن با جستجوی پیشرفته، تفسیر تطبیقی و ترجمه چندزبانه"
 logo: /cards/sahaba.svg
 pastel: "#FFDAC1"
 links:
