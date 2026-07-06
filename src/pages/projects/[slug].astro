@@ -53,42 +53,34 @@ const p = frontmatter;
         <!-- Links -->
         <div class="project-links">
           {p.links?.site && (
-            <a href={p.links.site} target="_blank" rel="noopener" class="project-link">
+            <a href={p.links.site} target="_blank" rel="noopener" class="project-link" title="وبسایت پروژه">
               <GlobeIcon class="pl-icon" />
-              <span>وبسایت پروژه</span>
             </a>
           )}
           {p.links?.telegram && (
-            <a href={p.links.telegram} target="_blank" rel="noopener" class="project-link">
+            <a href={p.links.telegram} target="_blank" rel="noopener" class="project-link" title="کانال تلگرام">
               <SendIcon class="pl-icon" />
-              <span>کانال تلگرام</span>
             </a>
           )}
           {p.links?.instagram && (
-            <a href={p.links.instagram} target="_blank" rel="noopener" class="project-link">
+            <a href={p.links.instagram} target="_blank" rel="noopener" class="project-link" title="اینستاگرام">
               <InstagramIcon class="pl-icon" />
-              <span>اینستاگرام</span>
             </a>
           )}
         </div>
 
-        <!-- PDFs -->
-        {p.pdfs && p.pdfs.length > 0 && (
-          <div class="project-pdfs">
-            <h2>کتابخانه</h2>
-            {p.pdfs.filter(pdf => pdf.file).map(pdf => (
-              <a href={pdf.file} target="_blank" rel="noopener" class="pdf-link">
-                {pdf.title}
-              </a>
-            ))}
-          </div>
-        )}
-
-        <!-- Share -->
-        <button class="share-btn" id="shareBtn" data-title="{p.name}">
-          <ShareIcon class="share-icon" />
-          <span>اشتراک‌گذاری</span>
-        </button>
+        <!-- Actions -->
+        <div class="project-actions">
+          <button class="action-btn" id="shareBtn" data-title="{p.name}">
+            <ShareIcon class="action-icon" />
+            <span>اشتراک‌گذاری</span>
+          </button>
+          {p.pdfs && p.pdfs.filter(p => p.file).length > 0 && (
+            <a href={p.pdfs.filter(p => p.file)[0].file} target="_blank" rel="noopener" class="action-btn">
+              <span>دانلود</span>
+            </a>
+          )}
+        </div>
       </div>
     </div>
 
@@ -97,13 +89,16 @@ const p = frontmatter;
 
       document.getElementById("shareBtn")?.addEventListener("click", function() {
         var title = this.getAttribute("data-title") + " | مهاجر";
+        var span = this.querySelector("span");
         if (navigator.share) {
           navigator.share({ title: title, url: window.location.href });
         } else {
           navigator.clipboard.writeText(window.location.href);
-          this.textContent = "لینک کپی شد!";
+          if (span) span.textContent = "لینک کپی شد!";
           var btn = this;
-          setTimeout(function() { btn.textContent = "اشتراک‌گذاری"; }, 2000);
+          setTimeout(function() {
+            if (span) span.textContent = "اشتراک‌گذاری";
+          }, 2000);
         }
       });
     </script>

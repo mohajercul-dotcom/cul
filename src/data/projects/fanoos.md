@@ -9,11 +9,6 @@ links:
   site: "https://fanoosarea.vercel.app/"
   telegram: "https://t.me/fanoosarea"
   instagram: "https://www.instagram.com/fanoosarea"
-pdfs:
-  - title: "بروشور معرفی فانوس"
-    file: ""
-  - title: "کتابچه راهنما"
-    file: ""
 ---
 
 فانوس فقط یک صفحه نیست...
