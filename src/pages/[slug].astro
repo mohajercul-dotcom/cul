@@ -154,7 +154,8 @@ const firstPdf = hasPdfs ? p.pdfs.filter((f: any) => f.file)[0] : null;
         var scrollEl = (window.innerWidth <= 640) ? document.documentElement : projectCard;
         scrollTarget.addEventListener("scroll", function() {
           var top = (window.innerWidth <= 640) ? window.scrollY : scrollEl.scrollTop;
-          if (top > 300) {
+          var threshold = (window.innerWidth <= 640) ? 10 : 300;
+          if (top > threshold) {
             scrollTopBtn.classList.add("visible");
           } else {
             scrollTopBtn.classList.remove("visible");
