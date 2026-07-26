@@ -1,7 +1,6 @@
 ---
 import "../styles/global.scss";
 import ProjectCard from "../components/ProjectCard.astro";
-import HomeIcon from "../components/icons/HomeIcon.astro";
 import ForumIcon from "../components/icons/ForumIcon.astro";
 import MailIcon from "../components/icons/MailIcon.astro";
 import SendIcon from "../components/icons/SendIcon.astro";
@@ -73,8 +72,7 @@ function persianNum(n: number): string {
           </div>
 
           <div class="menu-circles">
-            <button class="icon-circle" id="homeBtn" data-tooltip="خانه"><HomeIcon class="icon-svg" /></button>
-            <button class="icon-circle" id="contactBtn" data-tooltip="تماس با ما"><ForumIcon class="icon-svg" /></button>
+            <button class="icon-circle" id="contactBtn" data-tooltip="تماس با ما"><img src="/icons/about.svg" alt="" class="icon-svg" /></button>
           </div>
 
           <div class="stats">
@@ -170,10 +168,6 @@ function persianNum(n: number): string {
 
       function lockScroll() { document.body.style.overflow = "hidden"; }
       function unlockScroll() { document.body.style.overflow = ""; }
-
-      document.getElementById("homeBtn").addEventListener("click", function () {
-        window.location.href = "/";
-      });
 
       var contactBtn = document.getElementById("contactBtn");
       var modal = document.getElementById("contactModal");
