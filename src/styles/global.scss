@@ -1188,9 +1188,9 @@ body.dark .modal .modal-close {
     text-align: center;
   }
 
-  .toolbar-btn::after { display: none; }
-
   .project-link::before, .project-link::after { display: none; }
+  .toolbar-btn::before, .toolbar-btn::after { display: none; }
+  .back-link::before, .back-link::after { display: none; }
 }
 
 @media (max-width: 640px) {
