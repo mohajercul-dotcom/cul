@@ -656,6 +656,12 @@ body.dark .modal .modal-close {
   height: 32px;
   color: $red-l;
   margin-bottom: 8px;
+
+  &.icon-svg {
+    filter: brightness(0) saturate(100%) invert(94%) sepia(51%) saturate(560%) hue-rotate(340deg) brightness(105%) contrast(100%);
+    width: 40px;
+    height: 40px;
+  }
 }
 .modal-title {
   font-size: 1.05rem;
