@@ -1283,11 +1283,12 @@ body.dark .modal .modal-close {
     position: relative;
     height: auto;
 
-    .logo-wrap { grid-column: 1; grid-row: 3; }
+    .logo-wrap { grid-column: 1; grid-row: 1; }
     .brand-label { display: block; font-size: 0.55rem; letter-spacing: 2px; margin-top: 4px; color: inherit; }
     .about {
-      grid-column: 1 / -1; grid-row: 4;
+      grid-column: 2; grid-row: 1 / 4;
       margin: 0;
+      margin-top: 10px;
       font-size: 0.78rem; line-height: 1.7;
       max-height: 330px;
       overflow-y: auto;
@@ -1299,11 +1300,11 @@ body.dark .modal .modal-close {
       &::-webkit-scrollbar-track { background: transparent; }
       &::-webkit-scrollbar-thumb { background: rgba(255, 243, 230, 0.2); border-radius: 3px; }
     }
-    .menu-circles { grid-column: 1 / -1; grid-row: 2; justify-self: center; }
+    .menu-circles { grid-column: 1; grid-row: 2; }
     .menu-circles .icon-circle::before,
     .menu-circles .icon-circle::after { display: none; }
     .stats {
-      grid-column: 1 / -1; grid-row: 1;
+      grid-column: 1; grid-row: 3;
       margin-top: 0;
       gap: 4px;
       flex-shrink: 0;
