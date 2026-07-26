@@ -1248,7 +1248,7 @@ body.dark .modal .modal-close {
 /* ─── Responsive ─── */
 @media (max-width: 640px) {
   .project-page { padding: 12px; height: 100dvh; height: 100vh; min-height: unset; overflow: hidden; align-items: stretch; }
-  .project-card { padding: 20px; padding-bottom: 48px; max-height: unset; height: 100%; border-radius: 18px; overscroll-behavior: contain; }
+  .project-card { padding: 20px; padding-bottom: 48px; max-height: unset; height: 100%; border-radius: 18px; overscroll-behavior: contain; overflow-clip-margin: 18px; }
   .project-header h1 { font-size: 1.5rem; }
   .scroll-top-btn { position: fixed; bottom: 20px; right: 20px; }
 
