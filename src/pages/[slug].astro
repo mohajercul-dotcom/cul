@@ -109,6 +109,10 @@ const firstPdf = hasPdfs ? p.pdfs.filter((f: any) => f.file)[0] : null;
 
     <script>
       document.body.classList.add("dark");
+      if (window.innerWidth <= 640) {
+        document.body.style.overflow = "hidden";
+        document.documentElement.style.overflow = "hidden";
+      }
 
       document.getElementById("shareBtn")?.addEventListener("click", function() {
         var title = this.getAttribute("data-title");
