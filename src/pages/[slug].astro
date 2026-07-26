@@ -109,6 +109,10 @@ const firstPdf = hasPdfs ? p.pdfs.filter((f: any) => f.file)[0] : null;
 
     <script>
       document.body.classList.add("dark");
+      if (window.innerWidth <= 640) {
+        document.body.style.overflow = "hidden";
+        document.documentElement.style.overflow = "hidden";
+      }
 
       document.getElementById("shareBtn")?.addEventListener("click", function() {
         var title = this.getAttribute("data-title");
@@ -149,24 +153,18 @@ const firstPdf = hasPdfs ? p.pdfs.filter((f: any) => f.file)[0] : null;
 
       var scrollTopBtn = document.getElementById("scrollTopBtn");
       var projectCard = document.querySelector(".project-card");
-      var scrollTarget = (window.innerWidth <= 640) ? window : projectCard;
-      if (scrollTopBtn && scrollTarget) {
-        var scrollEl = (window.innerWidth <= 640) ? document.documentElement : projectCard;
-        scrollTarget.addEventListener("scroll", function() {
-          var top = (window.innerWidth <= 640) ? window.scrollY : scrollEl.scrollTop;
-          var threshold = (window.innerWidth <= 640) ? 10 : 300;
-          if (top > threshold) {
+      var isMobile = window.innerWidth <= 640;
+      if (scrollTopBtn && projectCard) {
+        projectCard.addEventListener("scroll", function() {
+          var threshold = isMobile ? 10 : 300;
+          if (this.scrollTop > threshold) {
             scrollTopBtn.classList.add("visible");
           } else {
             scrollTopBtn.classList.remove("visible");
           }
         });
         scrollTopBtn.addEventListener("click", function() {
-          if (window.innerWidth <= 640) {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          } else {
-            projectCard.scrollTo({ top: 0, behavior: "smooth" });
-          }
+          projectCard.scrollTo({ top: 0, behavior: "smooth" });
         });
       }
     </script>
