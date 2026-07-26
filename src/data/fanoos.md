@@ -12,7 +12,7 @@ links:
   instagram: "https://www.instagram.com/fanoosarea"
 pdfs:
   - title: "فایل معرفی فانوس"
-    file: "https://drive.proton.me/urls/43D1MDXEVM#7CtToFyiEmDy"
+    file: "/files/fanoos.pdf"
 ---
 
 فانوس فقط یک صفحه نیست...
