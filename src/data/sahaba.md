@@ -10,7 +10,9 @@ links:
   site: ""
   telegram: ""
   instagram: ""
-pdfs: []
+pdfs:
+  - title: "فایل معرفی صحابه"
+    file: "/files/sahaba.pdf"
 ---
 
 ## معرفی
