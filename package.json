@@ -10,8 +10,6 @@
   },
   "dependencies": {
     "astro": "^5.7.0",
-    "hijri-core": "^1.0.3",
-    "jalaali-js": "^1.2.8",
     "sass": "^1.100.0"
   }
 }
