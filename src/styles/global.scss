@@ -10,6 +10,12 @@ $dt-light: $light;
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { height: 100%; }
 
+a, button, [role="button"], label, input, select, textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button { -webkit-touch-callout: none; }
+
 body {
   font-family: "Vazirmatn", sans-serif;
   background: $light;
@@ -200,10 +206,17 @@ body {
     }
 
     strong {
+      display: inline-block;
+      padding: 2px 12px;
+      border-radius: 20px;
       font-weight: 600;
-      color: $dark;
+      background: $dark;
+      color: $light;
 
-      body.dark & { color: $dt-light; }
+      body.dark & {
+        background: $dt-light;
+        color: $dark;
+      }
     }
   }
 }
@@ -362,14 +375,18 @@ body {
   border-radius: 14px;
   overflow: hidden;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+    }
   }
 
   .card-badge {
