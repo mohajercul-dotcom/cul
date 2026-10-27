@@ -8,8 +8,12 @@
     "build": "astro build",
     "preview": "astro preview"
   },
-  "dependencies": {
-    "astro": "^5.7.0",
-    "sass": "^1.100.0"
+"dependencies": {
+    "@astrojs/cloudflare": "^12.6.13",
+    "@astrojs/vercel": "^10.0.8",
+    "@supabase/supabase-js": "^2.105.4",
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^6.3.1",
+    "tailwindcss": "^4.3.0"
   }
 }
