@@ -1,22 +1,15 @@
 {
-  "name": "saqifah",
+  "name": "islamic-portal",
   "type": "module",
-  "version": "0.0.1",
-  "engines": {
-    "node": "24.x"
-  },
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.6.13",
-    "@astrojs/vercel": "^10.0.8",
-    "@supabase/supabase-js": "^2.105.4",
-    "@tailwindcss/vite": "^4.3.0",
     "astro": "^5.7.0",
-    "tailwindcss": "^4.3.0"
+    "sass": "^1.100.0"
   }
 }
