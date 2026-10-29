@@ -10,7 +10,7 @@ intro: "*قفسه*\nکتابخانه‌ای برای شناخت، نقد و ان
 links:
   site: "https://www.qafaseh.us/"
   telegram: "https://t.me/qafaseapp"
-  instagram: "#"
+  instagram: "https://www.instagram.com/qafasehapp"
 pdfs:
   - title: "فایل معرفی قفسه"
     file: "/files/qafaseh.pdf"
