@@ -435,7 +435,7 @@ body {
   z-index: 0;
 }
 
-$card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#5b6299, #3b4279), (#7a5c8a, #4e3a5a), (#3a7a8a, #1e4d56);
+$card-grads: (#c44536, #8a2e22), (#2c7a68, #1a4d41), (#b67c3c, #7a5328), (#b87d4b, #704825), (#7a5c8a, #4e3a5a), (#3a7a8a, #1e4d56);
 @each $g in $card-grads {
   $i: list.index($card-grads, $g);
   .card:nth-child(#{$i}) .card-bg {
